@@ -3,373 +3,390 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Search and AI Visibility Kit | Wahiba Rechid</title>
-<meta name="description" content="Set up the search and AI visibility basics of a new site yourself: titles, descriptions, headings, sitemap, robots.txt, FAQ, structured data and AI search checks, ready to copy.">
-<meta property="og:title" content="Search and AI Visibility Kit">
-<meta property="og:description" content="The SEO and AI search basics of a new site, ready to copy and paste.">
+<title>Search and AI Visibility Brief | Wahiba Rechid</title>
+<meta name="description" content="Prepare the full search and AI visibility brief of a site, page by page: keywords, titles, descriptions, headings, FAQ, technical requests and AI search checks, ready to hand over to SEO and tech teams.">
+<meta property="og:title" content="Search and AI Visibility Brief">
+<meta property="og:description" content="Prepare the SEO and AI search brief of a whole site, page by page, and hand it over in one file.">
 <style>
 :root{
   --bg:#FBF8F2;--card:#fff;--ink:#18223A;--mute:#5C6478;--line:#E9E2D3;
-  --gold:#C9A45C;--gold-soft:#E3CC9A;--hero:#0D182D;
-  --s:#2B5C9E;--p:#0E7C86;--a:#B07D1F;--c:#1F8A63;
-  --shadow:0 1px 2px rgba(20,35,63,.05),0 12px 32px -14px rgba(20,35,63,.2);
+  --gold:#C9A45C;--gold-soft:#E3CC9A;--hero:#0D182D;--navy:#14233F;
+  --ok:#1F8A63;--warn:#B8791A;--bad:#C8412B;
+  --shadow:0 1px 2px rgba(20,35,63,.05),0 10px 28px -14px rgba(20,35,63,.2);
 }
-@media (prefers-color-scheme:dark){:root{--bg:#0B1322;--card:#132038;--ink:#F5EFE3;--mute:#A3ABBD;--line:#24324F;--s:#7FA8E0;--p:#5CC8D0;--a:#E3CC9A;--c:#5FCFA0;--shadow:0 12px 32px -12px rgba(0,0,0,.6)}}
+@media (prefers-color-scheme:dark){:root{--bg:#0B1322;--card:#132038;--ink:#F5EFE3;--mute:#A3ABBD;--line:#24324F;--navy:#1B2C4D;--ok:#5FCFA0;--warn:#E8B45C;--bad:#F08A76;--shadow:0 12px 32px -12px rgba(0,0,0,.6)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-.hero{background:var(--hero);color:#fff;position:relative;overflow:hidden;padding:40px 0 104px}
-.hero:before{content:"";position:absolute;inset:-40% -10% auto auto;width:640px;height:640px;background:radial-gradient(closest-side,rgba(201,164,92,.32),transparent)}
-.hero:after{content:"";position:absolute;inset:auto auto -50% -15%;width:600px;height:600px;background:radial-gradient(closest-side,rgba(43,92,158,.55),transparent)}
-.hero .wrap{position:relative;z-index:1}
-.eyebrow{display:inline-flex;gap:8px;align-items:center;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:6px 12px;border-radius:99px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18)}
-.eyebrow i{width:7px;height:7px;border-radius:50%;background:#3fd6a0}
-h1{font-size:clamp(2rem,5.4vw,3.3rem);line-height:1.06;letter-spacing:-.03em;margin:18px 0 12px;font-weight:800}
-h1 em{font-style:normal;color:var(--gold-soft)}
-.hero p{max-width:600px;margin:0;color:rgba(255,255,255,.78);font-size:1.08rem}
-.form{background:var(--card);border-radius:20px;box-shadow:var(--shadow);border:1px solid var(--line);padding:20px;margin-top:-72px;position:relative;z-index:2;display:grid;gap:14px}
-.q{display:grid;gap:6px;min-width:0;border:0;padding:0;margin:0}
-.q>legend,.q>label,.lab{font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);padding:0}
-input[type=text],input[type=url],input[type=date],textarea,select{font:inherit;font-size:.95rem;padding:9px 12px;border:1.5px solid var(--line);border-radius:11px;background:var(--bg);color:var(--ink);width:100%;min-width:0}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+.hero{background:var(--hero);color:#fff;position:relative;overflow:hidden;padding:30px 0 34px}
+.hero:before{content:"";position:absolute;inset:-60% -10% auto auto;width:640px;height:640px;background:radial-gradient(closest-side,rgba(201,164,92,.3),transparent)}
+.hero .wrap{position:relative;display:flex;gap:24px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap}
+.eyebrow{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--gold-soft)}
+h1{font-size:clamp(1.7rem,4.2vw,2.5rem);line-height:1.1;letter-spacing:-.025em;margin:6px 0 8px;font-weight:800}
+.hero p{max-width:620px;margin:0;color:rgba(255,255,255,.78)}
+.score{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:10px 16px}
+.score b{font-size:1.7rem;line-height:1}.score span{font-size:.82rem;color:rgba(255,255,255,.75)}
+.layout{display:grid;gap:24px;margin-top:24px;align-items:start}
+nav.steps{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.stp{font:inherit;text-align:left;flex:none;display:grid;grid-template-columns:auto 1fr;gap:2px 10px;align-items:center;padding:10px 12px;border-radius:13px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;min-width:170px}
+.stp i{grid-row:1/3;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:.85rem;background:var(--bg);border:1.5px solid var(--line)}
+.stp b{font-size:.92rem}.stp small{color:var(--mute);font-size:.76rem}
+.stp[aria-current=true]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.stp[aria-current=true] i{background:var(--navy);color:#fff;border-color:var(--navy)}
+.stp.full i{background:var(--ok);border-color:var(--ok);color:#fff}
+@media(min-width:960px){.layout{grid-template-columns:236px minmax(0,1fr)}nav.steps{flex-direction:column;position:sticky;top:16px;overflow:visible}.stp{min-width:0}}
+h2{font-size:1.45rem;letter-spacing:-.02em;margin:0 0 4px}
+.lead{color:var(--mute);margin:0 0 16px;max-width:720px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:18px;margin-bottom:14px;display:grid;gap:12px}
+.card>h3{margin:0;font-size:1.05rem;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.g2{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.fld{display:grid;gap:4px;min-width:0}
+.lab{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+input[type=text],input[type=date],textarea,select{font:inherit;font-size:.94rem;padding:8px 11px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;min-width:0}
 textarea{resize:vertical;display:block}
-input:focus,textarea:focus,select:focus,button:focus-visible{outline:3px solid rgba(201,164,92,.7);outline-offset:1px}
+input:focus,textarea:focus,select:focus,button:focus-visible,summary:focus-visible{outline:3px solid rgba(201,164,92,.7);outline-offset:1px}
+.cnt{font-size:.76rem;font-weight:600;color:var(--mute)}.cnt.ok{color:var(--ok)}.cnt.bad{color:var(--bad)}
 .seg{display:flex;flex-wrap:wrap;gap:8px}
-.seg label{flex:1 1 auto;position:relative}
+.seg label{position:relative;flex:1 1 auto}
 .seg input{position:absolute;opacity:0;inset:0;cursor:pointer}
-.seg span{display:block;padding:9px 12px;border:1.5px solid var(--line);border-radius:11px;font-weight:600;font-size:.9rem;background:var(--bg)}
-.seg input:checked+span{border-color:var(--ink);background:color-mix(in srgb,var(--gold) 16%,var(--card));box-shadow:inset 0 0 0 1px var(--ink)}
+.seg span{display:block;padding:8px 12px;border:1.5px solid var(--line);border-radius:10px;font-weight:600;font-size:.9rem;background:var(--bg)}
+.seg input:checked+span{border-color:var(--ink);background:color-mix(in srgb,var(--gold) 18%,var(--card));box-shadow:inset 0 0 0 1px var(--ink)}
 .seg input:focus-visible+span{outline:3px solid rgba(201,164,92,.7)}
-.cta{font:inherit;font-weight:700;color:#14233F;border:0;border-radius:12px;padding:13px 18px;background:linear-gradient(135deg,#E3CC9A,#C9A45C);cursor:pointer}
-#out{margin-top:28px}
-.ptitle{margin:0 0 4px;font-size:1.5rem;letter-spacing:-.02em}
-.hint{margin:0 0 16px;color:var(--mute);font-size:.94rem}
-.stats{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:14px}
-.stat b{display:block;font-size:1.9rem;line-height:1.05;letter-spacing:-.03em}
-.stat span{color:var(--mute);font-size:.86rem}
-.ring{width:58px;height:58px;flex:none}
-.ring circle{fill:none;stroke-width:8}.ring .bg{stroke:var(--line)}
-.ring .fg{stroke:var(--c);stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .4s}
-.ring text{font:700 16px system-ui;fill:var(--ink);text-anchor:middle;dominant-baseline:central}
-.next{margin-top:16px;border-radius:16px;padding:16px 20px;background:linear-gradient(135deg,#14233F,#1F3A66);border-left:5px solid var(--gold);color:#fff}
-.next small{color:var(--gold-soft);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.72rem}
-.next h3{margin:3px 0 0;font-size:1.15rem}
-.tools{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 0;align-items:center}
-.tools button{font:inherit;font-weight:600;font-size:.9rem;padding:8px 14px;border-radius:99px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
-.tools button.main{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.tools button[aria-pressed=true]{border-color:var(--gold);background:color-mix(in srgb,var(--gold) 20%,var(--card))}
-.tools .link{border:0;background:none;color:var(--mute);text-decoration:underline;margin-left:auto;padding:8px 4px}
-.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px}
-.tab{font:inherit;text-align:left;padding:11px 13px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;display:grid;gap:5px}
-.tab b{font-size:.95rem}.tab small{color:var(--mute);font-size:.78rem}
-.tab .mini{height:5px;border-radius:9px;background:var(--line);overflow:hidden}
-.tab .mini i{display:block;height:100%;background:var(--k);transition:width .3s}
-.tab[aria-selected=true]{border-color:var(--k);box-shadow:inset 0 0 0 1px var(--k);background:color-mix(in srgb,var(--k) 8%,var(--card))}
-.note{margin-top:12px;padding:12px 16px;border-radius:14px;background:color-mix(in srgb,var(--gold) 13%,var(--card));border:1px solid color-mix(in srgb,var(--gold) 45%,var(--card));font-size:.92rem}
-.table{margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
-.r{border-top:1px solid var(--line)}.r:first-child{border-top:0}
-.rh{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;padding:10px 14px}
-.chk{appearance:none;width:22px;height:22px;border-radius:7px;border:2px solid var(--line);margin:0;cursor:pointer;display:grid;place-items:center;background:var(--bg);flex:none}
-.chk:checked{background:var(--k);border-color:var(--k)}
-.chk:checked:after{content:"";width:5px;height:10px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
-.rt{font:inherit;font-weight:600;font-size:.97rem;text-align:left;background:none;border:0;color:var(--ink);cursor:pointer;padding:4px 0;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.rt:after{content:"+";color:var(--mute);font-weight:400;margin-left:auto}
-.rt[aria-expanded=true]:after{content:"\2013"}
-.r.done .rt span{text-decoration:line-through;color:var(--mute)}
-.tag{font-style:normal;font-size:.64rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:99px;white-space:nowrap;background:color-mix(in srgb,var(--t,var(--gold)) 20%,var(--card));color:var(--ink)}
-.tag.est{--t:#1F8A63}.tag.eme{--t:#d98a00}.tag.unp{--t:#c8412b}
-.rx{padding:2px 16px 18px 48px;display:grid;gap:12px}
-.rx p{margin:0}.rx .why{color:var(--mute);font-size:.93rem}
-.rx ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:.93rem}
-.rx a{color:inherit;font-weight:600}
-.grid2{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.fld{display:grid;gap:4px}
-.cnt{font-size:.78rem;color:var(--mute);font-weight:600}.cnt.ok{color:#1F8A63}.cnt.bad{color:#c8412b}
+.btn{font:inherit;font-weight:600;font-size:.9rem;padding:8px 14px;border-radius:99px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.btn.main{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn.gold{background:linear-gradient(135deg,#E3CC9A,#C9A45C);color:#14233F;border-color:transparent;font-weight:700}
+.btn.x{padding:6px 10px;color:var(--mute)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.sp{margin-left:auto}
+table.t{width:100%;border-collapse:collapse;font-size:.92rem}
+table.t th{text-align:left;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);padding:4px 6px}
+table.t td{padding:4px 6px;vertical-align:top}
+table.t td.n{font-weight:600;padding-top:11px;min-width:110px}
+.tw{overflow-x:auto}
+.tag{font-style:normal;font-size:.64rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:99px;white-space:nowrap;background:color-mix(in srgb,var(--t,var(--gold)) 20%,var(--card));color:var(--ink)}
+.tag.est{--t:#1F8A63}.tag.eme{--t:#d98a00}.tag.unp{--t:#c8412b}.tag.you{--t:#C9A45C}.tag.seo{--t:#0E7C86}.tag.tech{--t:#2B5C9E}
+.note{padding:11px 14px;border-radius:12px;background:color-mix(in srgb,var(--gold) 13%,var(--card));border:1px solid color-mix(in srgb,var(--gold) 45%,var(--card));font-size:.92rem}
+.alert{padding:11px 14px;border-radius:12px;background:color-mix(in srgb,var(--bad) 10%,var(--card));border:1px solid color-mix(in srgb,var(--bad) 45%,var(--card));font-size:.92rem;font-weight:600}
+.why{color:var(--mute);font-size:.93rem;margin:0}
+ul.l{margin:0;padding-left:18px;display:grid;gap:4px;font-size:.93rem}
+a{color:inherit;font-weight:600}
 .box{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg)}
-.box header{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 8px 6px 12px;border-bottom:1px solid var(--line);font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
-.box header button{font:inherit;font-size:.8rem;font-weight:700;text-transform:none;letter-spacing:0;padding:5px 11px;border-radius:99px;border:0;background:var(--ink);color:var(--bg);cursor:pointer}
-.box pre{margin:0;padding:12px;font:13px/1.5 ui-monospace,Consolas,monospace;white-space:pre-wrap;word-break:break-word;max-height:260px;overflow:auto}
-.box.ai{border-color:color-mix(in srgb,var(--gold) 55%,var(--line))}
-.box.ai pre{font-family:inherit;font-size:.92rem}
-.serp{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fff;color:#202124;font-family:Arial,sans-serif}
+.box header{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 8px 6px 12px;border-bottom:1px solid var(--line);font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.box header button{font:inherit;font-size:.8rem;font-weight:700;text-transform:none;letter-spacing:0;padding:5px 11px;border-radius:99px;border:0;background:var(--navy);color:#fff;cursor:pointer}
+.box pre{margin:0;padding:12px;font:13px/1.5 ui-monospace,Consolas,monospace;white-space:pre-wrap;word-break:break-word;max-height:280px;overflow:auto}
+.box.ai{border-color:color-mix(in srgb,var(--gold) 60%,var(--line))}.box.ai pre{font-family:inherit;font-size:.92rem}
+details.d{border:1px solid var(--line);border-radius:12px;background:var(--bg)}
+details.d>summary{cursor:pointer;padding:9px 12px;font-weight:600;font-size:.93rem}
+details.d>div{padding:0 12px 12px;display:grid;gap:10px}
+.serp{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fff;color:#202124;font-family:Arial,sans-serif;min-width:0}
 .serp small{color:#4d5156;font-size:12px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .serp b{display:block;color:#1a0dab;font-size:19px;font-weight:400;line-height:1.3;margin:2px 0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .serp span{color:#4d5156;font-size:14px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.where{font-size:.9rem;padding:9px 12px;border-left:3px solid var(--gold);background:color-mix(in srgb,var(--gold) 10%,transparent);border-radius:0 8px 8px 0}
-.log{width:100%;border-collapse:collapse;font-size:.88rem}
-.log th{text-align:left;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--mute);padding:4px}
-.log td{padding:3px}.log input,.log select{padding:6px 8px;font-size:.88rem}
-.small{font:inherit;font-size:.85rem;font-weight:600;padding:6px 12px;border-radius:99px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;justify-self:start}
-.method{margin-top:32px}.method h2{font-size:1.2rem;margin:0 0 12px}
-.m3{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-.m3 div{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:14px;padding:14px 16px;display:grid;gap:4px;align-content:start}
-.m3 span{color:var(--mute);font-size:.9rem}
-footer{margin:48px 0 36px;text-align:center;color:var(--mute);font-size:.86rem}
-footer a{color:var(--ink);font-weight:600}
-@media(min-width:980px){
-  main.wrap{display:grid;grid-template-columns:330px minmax(0,1fr);gap:28px;align-items:start}
-  .form{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto}
-  .cta{display:none}
-}
-@media(max-width:560px){.tab{padding:9px 8px}.tab b{font-size:.78rem}.tab small{display:none}.rx{padding-left:16px}.hero{padding:32px 0 100px}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font:inherit;font-weight:600;font-size:.88rem;padding:7px 12px;border-radius:99px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.chip small{font-weight:700;color:var(--mute)}
+.chip[aria-pressed=true]{background:var(--navy);color:#fff;border-color:var(--navy)}.chip[aria-pressed=true] small{color:var(--gold-soft)}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:5px;font-size:.92rem}
+.checks li{display:grid;grid-template-columns:54px 1fr;gap:8px;align-items:baseline}
+.checks b{font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;text-align:center;border-radius:99px;padding:2px 0;color:#fff;background:var(--ok)}
+.checks .no b{background:var(--bad)}.checks .mid b{background:var(--warn)}
+.item{border-top:1px solid var(--line);padding:12px 0;display:grid;gap:10px}
+.item:first-of-type{border-top:0;padding-top:0}
+.ih{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.chk{appearance:none;width:22px;height:22px;border-radius:7px;border:2px solid var(--line);margin:2px 0 0;cursor:pointer;display:grid;place-items:center;background:var(--bg)}
+.chk:checked{background:var(--ok);border-color:var(--ok)}
+.chk:checked:after{content:"";width:5px;height:10px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.it{font:inherit;font-weight:600;text-align:left;background:none;border:0;color:var(--ink);cursor:pointer;padding:0;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.it:after{content:"+";color:var(--mute);font-weight:400}.it[aria-expanded=true]:after{content:"\2013"}
+.ib{display:grid;gap:10px;padding-left:34px}
+.bar{height:8px;border-radius:9px;background:var(--line);overflow:hidden;min-width:90px}
+.bar i{display:block;height:100%;background:var(--ok)}
+footer{margin:40px 0 32px;text-align:center;color:var(--mute);font-size:.86rem}
+@media(max-width:560px){.ib{padding-left:0}.card{padding:14px}}
 </style>
 </head>
 <body>
 <header class="hero"><div class="wrap">
-  <span class="eyebrow"><i></i>Free visibility tool</span>
-  <h1>Ready for Google.<br><em>Ready for AI search.</em></h1>
-  <p>The search basics of a new site or article, step by step. Fill in a few details and copy the titles, tags, files and prompts, with no expert needed.</p>
+  <div>
+    <span class="eyebrow">Search and AI visibility brief</span>
+    <h1>Prepare the whole site. Hand over one file.</h1>
+    <p>Keywords, page specs, technical requests and AI search checks for every page, written by you and ready for your SEO and tech teams.</p>
+  </div>
+  <div class="score"><b id="total">0%</b><span>brief<br>ready</span></div>
 </div></header>
 
-<main class="wrap">
-  <form class="form" id="f" autocomplete="off">
-    <fieldset class="q"><legend>What are you setting up?</legend>
-      <div class="seg">
-        <label><input type="radio" name="type" value="page" checked><span>Website page</span></label>
-        <label><input type="radio" name="type" value="article"><span>Blog article</span></label>
-      </div></fieldset>
-    <div class="q"><label for="brand">Brand or site name</label><input type="text" id="brand" maxlength="60" placeholder="Atelier Nour"></div>
-    <div class="q"><label for="url">Site address</label><input type="text" id="url" maxlength="120" placeholder="www.ateliernour.com"></div>
-    <div class="q"><label for="topic">Topic of this page</label><input type="text" id="topic" maxlength="90" placeholder="Handmade ceramic workshops"></div>
-    <div class="q"><label for="desc">What you offer, in one sentence</label><textarea id="desc" rows="2" maxlength="220" placeholder="Weekend ceramic workshops for beginners in small groups."></textarea></div>
-    <div class="q"><label for="aud">Who it is for</label><input type="text" id="aud" maxlength="80" placeholder="Adults looking for a creative hobby"></div>
-    <div class="q"><label for="plat">Your site is built with</label>
-      <select id="plat"><option value="wp">WordPress</option><option value="wix">Wix</option><option value="shop">Shopify</option><option value="web">Webflow</option><option value="other">Something else or custom code</option></select></div>
-    <button class="cta" type="button" id="go">See my kit</button>
-  </form>
+<main class="wrap"><div class="layout">
+  <nav class="steps" id="nav" aria-label="Sections"></nav>
+  <section id="main" aria-live="polite"></section>
+</div></main>
 
-  <section id="out">
-    <h2 class="ptitle" id="ptitle">Your visibility kit</h2>
-    <p class="hint" id="hint">This is an example. Fill in the form and every text below adapts to your site.</p>
-    <div class="stats">
-      <div class="stat"><svg class="ring" viewBox="0 0 72 72" aria-hidden="true"><circle class="bg" cx="36" cy="36" r="30"/><circle class="fg" id="fg" cx="36" cy="36" r="30" stroke-dasharray="188.5" stroke-dashoffset="188.5"/><text id="pct" x="36" y="37">0%</text></svg><div><b id="done">0</b><span>steps done</span></div></div>
-      <div class="stat"><div><b id="readyG">0%</b><span>ready for Google</span></div></div>
-      <div class="stat"><div><b id="readyA">0%</b><span>ready for AI search</span></div></div>
-    </div>
-    <div class="next" id="next"></div>
-    <div class="tools">
-      <button type="button" class="main" id="dl">Download my kit</button>
-      <button type="button" id="ess" aria-pressed="false">Essentials only</button>
-      <button type="button" class="link" id="reset">Reset progress</button>
-    </div>
-    <div class="tabs" id="tabs" role="tablist"></div>
-    <div id="tabnote"></div>
-    <div class="table" id="plan"></div>
-
-    <section class="method">
-      <h2>How to read the labels</h2>
-      <div class="m3">
-        <div><b>Established</b><span>Documented by the search engines themselves. Do these first.</span></div>
-        <div><b>Emerging</b><span>Widely recommended for AI answers and consistent with what the engines say, but hard to measure yet.</span></div>
-        <div><b>Unproven</b><span>Popular advice with no confirmed effect so far. Cheap to do, lowest priority.</span></div>
-      </div>
-    </section>
-  </section>
-</main>
-
-<footer><div class="wrap">A setup makes a site ready to be found. It does not replace useful, original content.<br>Your answers stay in your browser. Built by <a href="https://wahiba-rechid.vercel.app/">Wahiba Rechid</a></div></footer>
+<footer><div class="wrap">A brief makes a site ready to be found. It does not replace useful, original content.<br>Everything you type stays in your browser. Built by <a href="https://wahiba-rechid.vercel.app/">Wahiba Rechid</a></div></footer>
 
 <script>
 const $=id=>document.getElementById(id);
-const h=(tag,props,...kids)=>{const e=document.createElement(tag);for(const k in props||{}){if(k==="class")e.className=props[k];else if(k==="text")e.textContent=props[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),props[k]);else e.setAttribute(k,props[k])}kids.flat().forEach(c=>c!=null&&e.appendChild(typeof c==="string"?document.createTextNode(c):c));return e};
+const h=(tag,props,...kids)=>{const e=document.createElement(tag);for(const k in props||{}){const v=props[k];if(k.startsWith("aria-")&&v!=null){e.setAttribute(k,String(v));continue}if(v==null||v===false)continue;if(k==="class")e.className=v;else if(k==="text")e.textContent=v;else if(k==="html")e.innerHTML=v;else if(k.startsWith("on"))e.addEventListener(k.slice(2),v);else e.setAttribute(k,v===true?"":v)}kids.flat(3).forEach(c=>c!=null&&c!==false&&e.appendChild(typeof c==="string"?document.createTextNode(c):c));return e};
 const store={get(k,d){try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 
 // ---------- state ----------
-const EX={brand:"Atelier Nour",url:"www.ateliernour.com",topic:"Handmade ceramic workshops",desc:"Weekend ceramic workshops for beginners in small groups.",aud:"Adults looking for a creative hobby"};
-let info=store.get("vk-info",{}),x=store.get("vk-x",{}),done=store.get("vk-done",{}),ess=store.get("vk-ess",false),tab="s";
+const EXAMPLE=()=>({example:true,site:{brand:"Atelier Nour",url:"www.ateliernour.com",desc:"Weekend ceramic workshops for beginners in small groups.",aud:"Adults looking for a creative hobby",plat:"WordPress",mode:"new",local:true,multi:false,ai:"search"},
+ pages:[
+  {id:1,name:"Home",type:"home",kw:"ceramic workshops",kw2:"pottery classes, ceramics studio",intent:"Find a provider",meta:"Weekend ceramic workshops for beginners, in small groups of six. Learn to throw and glaze your own pieces with a patient teacher. See the next dates.",sections:"What can you make in a workshop?\nWho are the workshops for?\nHow does a session work?\nHow much does it cost?",faq:"Do I need experience?\nNo. The workshops are designed for complete beginners.\n\nHow long is a workshop?\nThree hours, with all materials included."},
+  {id:2,name:"Beginner workshop",type:"page",kw:"beginner pottery class",kw2:"first pottery lesson",intent:"Buy or book"},
+  {id:3,name:"How to choose your first pottery class",type:"article",kw:"how to choose a pottery class",intent:"Learn about a topic"}],
+ tech:{},ai:{},redir:[],log:[],x:{}});
+const BLANK=()=>({site:{brand:"",url:"",desc:"",aud:"",plat:"WordPress",mode:"new",local:false,multi:false,ai:"search"},pages:[{id:1,name:"Home",type:"home"}],tech:{},ai:{},redir:[],log:[],x:{}});
+let S=store.get("vb-state",null)||EXAMPLE();
+let sec="site",cur=S.pages[0]?S.pages[0].id:null,live=[];
 const open=new Set();
-const typ=()=>document.querySelector('input[name="type"]:checked').value;
-const f=k=>(info[k]||"").trim()||EX[k];
-const B=()=>f("brand"),T=()=>f("topic"),DESC=()=>f("desc"),AUD=()=>f("aud");
-const U=()=>{let u=f("url").replace(/\s+/g,"").replace(/\/+$/,"");if(!/^https?:\/\//i.test(u))u="https://"+u;return u};
-const STOP=new Set("a an the and or of for to in on with at by from".split(" "));
+const save=()=>store.set("vb-state",S);
+
+// ---------- helpers on the data ----------
+const B=()=>(S.site.brand||"").trim()||"Your brand";
+const U=()=>{let u=((S.site.url||"").trim()||"www.yoursite.com").replace(/\s+/g,"").replace(/\/+$/,"");if(!/^https?:\/\//i.test(u))u="https://"+u;return u};
+const DESC=()=>(S.site.desc||"").trim()||"[what you offer, in one sentence]";
+const AUD=()=>(S.site.aud||"").trim()||"[who it is for]";
+const STOP=new Set("a an the and or of for to in on with at by from how your".split(" "));
 const slug=t=>t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g," ").trim().split(" ").filter(w=>w&&!STOP.has(w)).join("-").slice(0,60).replace(/-+$/,"");
-const PU=()=>U()+"/"+(typ()==="article"?"blog/":"")+slug(T());
+const cap=t=>t?t.charAt(0).toUpperCase()+t.slice(1):t;
 const lines=t=>(t||"").split(/\n/).map(s=>s.trim()).filter(Boolean);
-const ld=o=>'<script type="application/ld+json">\n'+JSON.stringify(o,null,2)+"\n<\/script>";
 const esc=t=>String(t).replace(/[<>&"]/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]));
+const ld=o=>'<script type="application/ld+json">\n'+JSON.stringify(o,null,2)+"\n<\/script>";
+const TYPES={home:"Home page",page:"Page",article:"Blog article"};
+const P=()=>S.pages.find(p=>p.id===cur)||S.pages[0];
+const kw=p=>(p.kw||"").trim();
+const topic=p=>kw(p)||p.name||"this page";
+const pTitle=p=>(p.title||"").trim()||(p.type==="home"?B()+" | "+cap(topic(p)):cap(topic(p))+" | "+B());
+const pMeta=p=>(p.meta||"").trim();
+const pPath=p=>{const s=(p.slug||"").trim();if(s)return s.startsWith("/")?s:"/"+s;return p.type==="home"?"/":(p.type==="article"?"/blog/":"/")+slug(topic(p))};
+const pUrl=p=>U()+pPath(p);
+const pH1=p=>(p.h1||"").trim()||(p.type==="article"?p.name:cap(topic(p)));
+const pSecs=p=>lines(p.sections);
+const pFaqs=p=>(p.faq||"").split(/\n\s*\n/).map(s=>lines(s)).filter(l=>l.length>1).map(l=>[l[0],l.slice(1).join(" ")]);
+const dupKw=p=>!!kw(p)&&S.pages.some(q=>q!==p&&kw(q).toLowerCase()===kw(p).toLowerCase());
+function pChecks(p){const t=pTitle(p).length,m=pMeta(p).length;return [
+  [!!kw(p),"Main keyword chosen"],[!dupKw(p),"Keyword not used by another page"],
+  [t>=30&&t<=60,"Title between 30 and 60 characters ("+t+")"],[m>=120&&m<=155,"Description between 120 and 155 characters ("+m+")"],
+  [pSecs(p).length>=3,"At least three sections ("+pSecs(p).length+")"],[pFaqs(p).length>=2,"At least two questions and answers ("+pFaqs(p).length+")"]]}
+const pScore=p=>{const c=pChecks(p);return Math.round(100*c.filter(x=>x[0]).length/c.length)};
+function pCode(p){const out=["<title>"+esc(pTitle(p))+"</title>",'<meta name="description" content="'+esc(pMeta(p))+'">','<link rel="canonical" href="'+esc(pUrl(p))+'">',
+  '<meta property="og:type" content="'+(p.type==="article"?"article":"website")+'">','<meta property="og:title" content="'+esc(pTitle(p))+'">','<meta property="og:description" content="'+esc(pMeta(p))+'">','<meta property="og:url" content="'+esc(pUrl(p))+'">','<meta property="og:image" content="'+esc((p.img||"").trim()||U()+"/share-image.jpg")+'">','<meta name="twitter:card" content="summary_large_image">'];
+  const q=pFaqs(p);if(q.length)out.push("",ld({"@context":"https://schema.org","@type":"FAQPage",mainEntity:q.map(([a,b])=>({"@type":"Question",name:a,acceptedAnswer:{"@type":"Answer",text:b}}))}));
+  if(p.type==="article"){const d=p.date||new Date().toISOString().slice(0,10);out.push("",ld({"@context":"https://schema.org","@type":"Article",headline:pH1(p),description:pMeta(p),author:{"@type":"Person",name:(p.author||"").trim()||"[author name]"},datePublished:d,dateModified:d,publisher:{"@type":"Organization",name:B(),url:U()+"/"},mainEntityOfPage:pUrl(p)}))}
+  return out.join("\n")}
+const pOutline=p=>"H1  "+pH1(p)+"\n"+(pSecs(p).length?pSecs(p):["[section 1]","[section 2]","[section 3]"]).map(s=>"  H2  "+s).join("\n")+(pFaqs(p).length?"\n  H2  Frequently asked questions":"");
+const brandline=()=>(S.x.brandline||"").trim()||B()+": "+DESC().replace(/\.$/,"")+", for "+AUD().charAt(0).toLowerCase()+AUD().slice(1).replace(/\.$/,"")+".";
 
-// ---------- generated texts ----------
-const O={
-  title:()=>(x.title||"").trim()||T()+" | "+B(),
-  meta:()=>(x.meta||"").trim()||DESC(),
-  slug:()=>PU(),
-  sections:()=>{const l=lines(x.sections);return l.length?l:["What is "+T().toLowerCase()+"?","Who is it for?","How does it work?","How much does it cost?","How do I get started?"]},
-  outline:()=>"H1  "+T()+"\n"+O.sections().map(s=>"  H2  "+s).join("\n")+"\n  H2  Frequently asked questions",
-  faqs:()=>{const b=(x.faq||"").split(/\n\s*\n/).map(s=>lines(s)).filter(l=>l.length>1).map(l=>[l[0],l.slice(1).join(" ")]);return b.length?b:[["What is "+T().toLowerCase()+"?",DESC()],["Who is it for?",AUD()+"."]]},
-  faq:()=>{const q=O.faqs();return "<h2>Frequently asked questions</h2>\n"+q.map(([a,b])=>"<h3>"+esc(a)+"</h3>\n<p>"+esc(b)+"</p>").join("\n")+"\n\n"+ld({"@context":"https://schema.org","@type":"FAQPage",mainEntity:q.map(([a,b])=>({"@type":"Question",name:a,acceptedAnswer:{"@type":"Answer",text:b}}))})},
-  paths:()=>{const l=lines(x.paths);return l.length?l:["/","/about","/contact",PU().replace(U(),"")]},
-  sitemap:()=>'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+O.paths().map(p=>"  <url><loc>"+esc(/^https?:/.test(p)?p:U()+(p.startsWith("/")?p:"/"+p))+"</loc></url>").join("\n")+"\n</urlset>",
-  robots:()=>{const m=x.ai||"search",S=["OAI-SearchBot","ChatGPT-User","Claude-SearchBot","Claude-User","PerplexityBot"],TR=["GPTBot","ClaudeBot","Google-Extended","Applebot-Extended","CCBot","meta-externalagent"];
-    const grp=(l,r)=>l.map(a=>"User-agent: "+a).join("\n")+"\n"+r;
-    let t="# Search engines and everyone else\nUser-agent: *\nAllow: /\n\n";
-    if(m==="all")t+="# AI search and AI training: allowed\n"+grp([...S,...TR],"Allow: /")+"\n\n";
-    if(m==="search")t+="# AI search assistants: allowed, so the site can be cited\n"+grp(S,"Allow: /")+"\n\n# AI training: not allowed\n"+grp(TR,"Disallow: /")+"\n\n";
-    if(m==="none")t+="# AI search and AI training: not allowed\n"+grp([...S,...TR],"Disallow: /")+"\n\n";
+// ---------- site-level generated texts ----------
+const G={
+  sitemap:()=>'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+S.pages.map(p=>"  <url><loc>"+esc(pUrl(p))+"</loc></url>").join("\n")+"\n</urlset>",
+  robots:()=>{const m=S.site.ai||"search",A=["OAI-SearchBot","ChatGPT-User","Claude-SearchBot","Claude-User","PerplexityBot","Perplexity-User"],TR=["GPTBot","ClaudeBot","Google-Extended","Applebot-Extended","CCBot","meta-externalagent"];
+    const grp=(l,r)=>l.map(a=>"User-agent: "+a).join("\n")+"\n"+r;let t="# Search engines and everyone else\nUser-agent: *\nAllow: /\n\n";
+    if(m==="all")t+="# AI search and AI training: allowed\n"+grp([...A,...TR],"Allow: /")+"\n\n";
+    if(m==="search")t+="# AI search assistants: allowed, so the site can be cited\n"+grp(A,"Allow: /")+"\n\n# AI training: not allowed\n"+grp(TR,"Disallow: /")+"\n\n";
+    if(m==="none")t+="# AI search and AI training: not allowed\n"+grp([...A,...TR],"Disallow: /")+"\n\n";
     return t+"Sitemap: "+U()+"/sitemap.xml"},
-  brandline:()=>(x.brandline||"").trim()||B()+": "+DESC().replace(/\.$/,"")+", for "+AUD().charAt(0).toLowerCase()+AUD().slice(1).replace(/\.$/,"")+".",
-  org:()=>{const o={"@context":"https://schema.org","@type":"Organization",name:B(),url:U()+"/",description:O.brandline()};if((x.logo||"").trim())o.logo=x.logo.trim();const p=lines(x.profiles);if(p.length)o.sameAs=p;return ld(o)},
-  og:()=>['<meta property="og:type" content="'+(typ()==="article"?"article":"website")+'">','<meta property="og:title" content="'+esc(O.title())+'">','<meta property="og:description" content="'+esc(O.meta())+'">','<meta property="og:url" content="'+esc(PU())+'">','<meta property="og:image" content="'+esc((x.img||"").trim()||U()+"/share-image.jpg")+'">','<meta name="twitter:card" content="summary_large_image">'].join("\n"),
-  article:()=>{const d=x.date||new Date().toISOString().slice(0,10);return ld({"@context":"https://schema.org","@type":"Article",headline:T(),description:O.meta(),author:{"@type":"Person",name:(x.author||"").trim()||"Author name"},datePublished:d,dateModified:d,publisher:{"@type":"Organization",name:B(),url:U()+"/"},mainEntityOfPage:PU()})},
-  llms:()=>"# "+B()+"\n\n> "+O.brandline()+"\n\n## Main pages\n\n- [Home]("+U()+"/): "+DESC()+"\n- ["+T()+"]("+PU()+"): "+O.meta()+"\n- [About]("+U()+"/about): Who we are and how to contact us",
-  siteq:()=>"site:"+PU().replace(/^https?:\/\//,""),
-  tests:()=>["What is "+B()+" and what do they offer?","What are good options for "+T().toLowerCase()+" for "+AUD().toLowerCase()+"?",O.sections()[0],"Which sources did you use for that answer?"].map((t,i)=>(i+1)+". "+t).join("\n"),
-  // prompts for an AI assistant
-  pTitle:()=>'Write 5 page titles of 50 to 60 characters for a '+(typ()==="article"?"blog article":"website page")+' about "'+T()+'" from '+B()+'. Audience: '+AUD()+'. Put the main topic first and the brand name last. No clickbait, no capital letters for emphasis.',
-  pMeta:()=>'Write 3 meta descriptions of 140 to 155 characters for a '+(typ()==="article"?"blog article":"website page")+' about "'+T()+'" from '+B()+'. Audience: '+AUD()+'. Start with the benefit, name the topic once, end with a reason to click. No quotation marks, no exclamation marks. Give the character count of each.',
-  pOutline:()=>'Propose a heading outline for a '+(typ()==="article"?"blog article":"website page")+' about "'+T()+'" for '+AUD()+': one H1, 4 to 6 H2, H3 only where useful. Write the H2s as the questions this audience really asks. What we offer: '+DESC(),
-  pAnswer:()=>'For each heading below, write a direct answer of 40 to 60 words that still makes sense if quoted alone. Plain language, one concrete fact or number where possible, no introduction. Mark with [CHECK] anything you are not sure about.\n\n'+O.sections().map(s=>"- "+s).join("\n")+'\n\nContext: '+B()+'. '+DESC(),
-  pFaq:()=>'List the 8 questions that '+AUD().toLowerCase()+' most often ask about "'+T()+'", in their own words. Answer each in 2 or 3 sentences using only this information: '+DESC()+' Mark with [CHECK] every answer that needs a fact I must confirm (price, place, date, guarantee).',
-  pAlt:()=>'Write alt text of under 125 characters for this image: [describe the image or attach it]. Say what is shown. Mention "'+T()+'" only if it is really in the image. Do not start with "Image of".',
-  pBrand:()=>'Rewrite this description of '+B()+' in one sentence of at most 25 words, then in a 50-word version. Keep only facts: what we do, for whom, where. No superlatives. Description: '+DESC()+' Audience: '+AUD()+'.',
-  pFacts:()=>'Here is the text of my page: [paste the text]. List the factual questions a reader or an AI assistant could ask about '+B()+' and "'+T()+'" that this page does not answer clearly (who, what, for whom, where, how much, how long, since when, who wrote it, last updated).'
+  org:()=>{const x=S.x,o={"@context":"https://schema.org","@type":S.site.local?"LocalBusiness":"Organization",name:B(),url:U()+"/",description:brandline()};
+    if((x.logo||"").trim())o.logo=x.logo.trim();
+    if(S.site.local){o.telephone=(x.phone||"").trim()||"[phone]";o.address={"@type":"PostalAddress",streetAddress:(x.street||"").trim()||"[street]",addressLocality:(x.city||"").trim()||"[city]",postalCode:(x.zip||"").trim()||"[postcode]",addressCountry:(x.country||"").trim()||"[country]"};if((x.hours||"").trim())o.openingHours=x.hours.trim()}
+    const pr=lines(x.profiles);if(pr.length)o.sameAs=pr;return ld(o)},
+  lang:()=>{const l=(S.x.langs||"en, fr").split(",").map(s=>s.trim().toLowerCase()).filter(Boolean);return '<html lang="'+l[0]+'">\n\n'+l.map(c=>'<link rel="alternate" hreflang="'+c+'" href="'+U()+"/"+(c===l[0]?"":c+"/")+'">').join("\n")+'\n<link rel="alternate" hreflang="x-default" href="'+U()+'/">'},
+  redir:()=>S.redir.filter(r=>(r.from||"").trim()).map(r=>"301  "+r.from.trim()+"  ->  "+((r.to||"").trim()||"[new address]")).join("\n")||"[add the old addresses in the table above]",
+  events:()=>lines(S.x.events).map((e,i)=>(i+1)+". "+e).join("\n")||"1. [contact form sent]\n2. [booking or purchase completed]",
+  llms:()=>"# "+B()+"\n\n> "+brandline()+"\n\n## Main pages\n\n"+S.pages.map(p=>"- ["+p.name+"]("+pUrl(p)+")"+(pMeta(p)?": "+pMeta(p):"")).join("\n"),
+  siteq:()=>S.pages.map(p=>"site:"+pUrl(p).replace(/^https?:\/\//,"")).join("\n"),
+  tests:()=>["What is "+B()+" and what do they offer?","What are good options for "+topic(S.pages[0]||{name:"this"})+" for "+AUD().toLowerCase()+"?",(pSecs(S.pages[0]||{})[0])||"[one question your customers ask]","Which sources did you use for that answer?"].map((t,i)=>(i+1)+". "+t).join("\n"),
+  pKw:()=>"I am preparing the search strategy of a website. Brand: "+B()+". Offer: "+DESC()+" Audience: "+AUD()+".\nPages: "+S.pages.map(p=>p.name+" ("+TYPES[p.type].toLowerCase()+")").join("; ")+".\n\nFor each page, propose one main keyword phrase and three related phrases, written the way this audience really searches. Give each page a different main phrase so that no two pages compete. Say what the searcher wants for each (learn, compare, buy, find a provider). Present it as a table. You cannot see search volumes: mark each phrase I should verify in a keyword tool.",
+  pBrand:()=>"Rewrite this description of "+B()+" in one sentence of at most 25 words, then in a 50-word version. Keep only facts: what we do, for whom, where. No superlatives. Description: "+DESC()+" Audience: "+AUD()+".",
+  pFacts:()=>"Here is the text of my page: [paste the text]. List the factual questions a reader or an AI assistant could ask about "+B()+" that this page does not answer clearly (who, what, for whom, where, how much, how long, since when, who wrote it, last updated).",
+  msg:()=>{const t=TECH().filter(i=>!S.tech[i.id]);return "Hello,\n\nHere is the search and AI visibility brief for "+B()+" ("+U()+").\n\n- "+S.pages.length+" pages specified: keyword, title, description, headings, questions and code for each.\n- "+t.length+" technical requests still open.\n"+(S.site.mode==="redesign"?"- The site replaces an existing one: the redirect list is included.\n":"")+"\nFirst requests to handle:\n"+t.slice(0,5).map(i=>"- "+i.title+" ("+OWN[i.own]+")").join("\n")+"\n\nThe attached Excel file has one sheet per subject: overview, keyword map, page specs, technical requests, redirects, AI search and the code for each page.\n\nTell me what is unclear or not feasible and I will adjust the brief.\n\nThank you"}
 };
+const pPrompts=p=>{const k=TYPES[p.type].toLowerCase(),ctx=" Brand: "+B()+". Offer: "+DESC()+" Audience: "+AUD()+".";return [
+  ["Title ideas","Write 5 page titles of 50 to 60 characters for a "+k+' targeting the search "'+topic(p)+'".'+ctx+" Put the keyword first and the brand name last. No clickbait. Give the character count of each."],
+  ["Description ideas","Write 3 meta descriptions of 140 to 155 characters for a "+k+' targeting the search "'+topic(p)+'".'+ctx+" Start with the benefit, use the keyword once, end with a reason to click. No quotation marks, no exclamation marks. Give the character count of each."],
+  ["Heading outline","Propose a heading outline for a "+k+' targeting the search "'+topic(p)+'": one H1, 4 to 6 H2, H3 only where useful. Write the H2s as the questions this audience really asks.'+ctx],
+  ["Direct answers","For each heading below, write a direct answer of 40 to 60 words that still makes sense if quoted alone. Plain language, one concrete fact where possible, no introduction. Mark with [CHECK] anything you are not sure about.\n\n"+(pSecs(p).length?pSecs(p):["[your sections]"]).map(s=>"- "+s).join("\n")+"\n\n"+ctx.trim()],
+  ["Questions and answers","List the 8 questions that "+AUD().toLowerCase()+' most often ask about "'+topic(p)+'", in their own words. Answer each in 2 or 3 sentences using only this information: '+DESC()+" Mark with [CHECK] every answer that needs a fact I must confirm (price, place, date, guarantee)."],
+  ["Image descriptions","Write alt text of under 125 characters for this image: [describe the image or attach it]. Say what is shown. Mention \""+topic(p)+'" only if it is really in the image. Do not start with "Image of".']]};
 
-// ---------- where to paste, by platform ----------
-const W={
- meta:{wp:"Edit the page, then fill the title and description fields of your SEO plugin (Yoast SEO, Rank Math or similar).",wix:"Page settings, then the SEO section.",shop:"At the bottom of the page or product editor, in the search engine listing section.",web:"Page settings, then SEO settings.",other:'Inside the <head> of the page: <title>...</title> and <meta name="description" content="...">.'},
- head:{wp:"Use the schema or header-code option of your SEO plugin to add the code to this page.",wix:"Page settings, SEO section, advanced options: structured data or additional tags.",shop:"Online Store, Themes, Edit code: add it to the matching template, or use an SEO app.",web:"Page settings, Custom code, inside the head tag.",other:"Paste it inside the <head> of the page."},
- file:{wp:"SEO plugins include a robots.txt editor and create the sitemap for you. Other files go at the site root through your host's file manager.",wix:"Wix creates the sitemap itself. The SEO settings include a robots.txt editor.",shop:"Shopify creates the sitemap and robots.txt. To change robots.txt, add the robots.txt.liquid template in Edit code.",web:"Site settings, SEO tab: robots.txt field and automatic sitemap.",other:"Save it as a file at the root of the site, for example yoursite.com/robots.txt."},
- body:{wp:"In the editor, set each block to Heading 2 or Heading 3. The page title is the H1.",wix:"Select the text, then choose Heading 1, 2 or 3 in the text settings.",shop:"In the page editor, use the Heading 2 and Heading 3 formats. The page title is the H1.",web:"Use Heading elements and pick H1, H2 or H3 in the element settings.",other:"Use <h1>, <h2> and <h3> tags, with a single <h1> per page."}
-};
-const where=k=>h("p",{class:"where"},h("b",{text:"Where it goes. "}),W[k][$("plat").value]+" Menu names change over time: if you cannot find it, search your platform's help.");
-
-// ---------- building blocks ----------
-function box(key,label,ai){const pre=h("pre",{"data-out":key,text:O[key]()});
-  const b=h("button",{type:"button",text:"Copy",onclick:()=>{(navigator.clipboard?navigator.clipboard.writeText(O[key]()):Promise.reject()).then(()=>b.textContent="Copied",()=>b.textContent="Select and copy");setTimeout(()=>b.textContent="Copy",1600)}});
-  return h("div",{class:"box"+(ai?" ai":"")},h("header",null,ai?"Prompt for your AI assistant":label,b),pre)}
-function fld(key,label,opt){opt=opt||{};const el=h(opt.rows?"textarea":"input",{id:"x-"+key,placeholder:opt.ph||"",maxlength:opt.max||2000});if(opt.rows)el.rows=opt.rows;else el.type=opt.type||"text";el.value=x[key]||"";
-  el.addEventListener("input",()=>{x[key]=el.value;store.set("vk-x",x);refresh()});
-  const kids=[h("label",{class:"lab",for:"x-"+key,text:label}),el];if(opt.count)kids.push(h("span",{class:"cnt","data-cnt":opt.count.join(","),"data-src":opt.src||key}));
-  return h("div",{class:"fld"},kids)}
+// ---------- UI building blocks ----------
+function dirty(){if(S.example){S.example=false}save()}
+function fld(obj,key,label,o){o=o||{};let el;
+  if(o.options){el=h("select",null,o.options.map(v=>Array.isArray(v)?h("option",{value:v[0],text:v[1]}):h("option",{value:v,text:v||"Choose"})));const d0=Array.isArray(o.options[0])?o.options[0][0]:o.options[0];el.value=obj[key]==null||obj[key]===""?d0:obj[key]}
+  else{el=h(o.rows?"textarea":"input",{placeholder:o.ph,maxlength:o.max||3000});if(o.rows)el.rows=o.rows;else el.type=o.type||"text";el.value=obj[key]||""}
+  el.setAttribute("aria-label",label);
+  el.addEventListener(o.options?"change":"input",()=>{obj[key]=el.value;dirty();o.re?render():refresh()});
+  if(o.bare)return el;
+  const kids=[h("span",{class:"lab",text:label}),el];
+  if(o.count){const c=h("span",{class:"cnt"});live.push(()=>{const n=o.count[2]().length;c.textContent=n+" characters (aim for "+o.count[0]+" to "+o.count[1]+")";c.className="cnt "+(n>=o.count[0]&&n<=o.count[1]?"ok":"bad")});kids.push(c)}
+  return h("label",{class:"fld"},kids)}
+function box(fn,label,ai){const pre=h("pre");live.push(()=>{const t=fn();if(pre.textContent!==t)pre.textContent=t});
+  const b=h("button",{type:"button",text:"Copy",onclick:()=>{(navigator.clipboard?navigator.clipboard.writeText(fn()):Promise.reject()).then(()=>b.textContent="Copied",()=>b.textContent="Select and copy");setTimeout(()=>b.textContent="Copy",1600)}});
+  return h("div",{class:"box"+(ai?" ai":"")},h("header",null,ai?"Prompt for your AI assistant: "+label:label,b),pre)}
 const why=t=>h("p",{class:"why",text:t});
-const ul=(...li)=>h("ul",null,li.map(t=>{const e=h("li");e.innerHTML=t;return e}));
-const serp=()=>h("div",{class:"serp","aria-label":"Preview of the search result"},h("small",{"data-out":"slug"}),h("b",{"data-out":"title"}),h("span",{"data-out":"meta"}));
+const ul=(...li)=>h("ul",{class:"l"},li.filter(Boolean).map(t=>h("li",{html:t})));
+const card=(title,...kids)=>h("div",{class:"card"},title?h("h3",null,title):null,kids);
+const seg=(obj,key,opts,name)=>h("div",{class:"seg"},opts.map(([v,l])=>{const i=h("input",{type:"radio",name,value:String(v)});i.checked=String(obj[key])===String(v);i.addEventListener("change",()=>{obj[key]=v;dirty();render()});return h("label",null,i,h("span",{text:l}))}));
+const OWN={you:"You",seo:"SEO",tech:"Tech"},EV={est:"Established",eme:"Emerging",unp:"Unproven"};
+function items(list,map){return list.map(it=>{const isOpen=open.has(it.id),ck=h("input",{type:"checkbox",class:"chk","aria-label":"Done: "+it.title});ck.checked=!!map[it.id];
+  ck.addEventListener("change",()=>{map[it.id]=ck.checked;dirty();render()});
+  const bt=h("button",{type:"button",class:"it","aria-expanded":isOpen,onclick:()=>{isOpen?open.delete(it.id):open.add(it.id);render()}},h("span",{text:it.title}),it.own?h("em",{class:"tag "+it.own,text:OWN[it.own]}):null,it.ev?h("em",{class:"tag "+it.ev,text:EV[it.ev]}):null);
+  return h("div",{class:"item"},h("div",{class:"ih"},ck,bt),isOpen?h("div",{class:"ib"},it.body()):null)})}
 
-// ---------- steps ----------
-// {id, tab, title, ess, ev (est|eme|unp), g (counts for Google), a (counts for AI), only, body()}
-const STEPS=[
- {id:"s1",tab:"s",ess:1,ev:"est",g:1,a:1,title:"Connect Google Search Console and Bing Webmaster Tools",body:()=>[why("Until the search engines know the site exists, nothing else counts. Both tools are free, show how people find you, and let you submit your pages. Bing matters too: several AI assistants rely on its index."),
-   ul('Open <a href="https://search.google.com/search-console" target="_blank" rel="noopener">Google Search Console</a>, add your site and follow the verification steps.','Open <a href="https://www.bing.com/webmasters" target="_blank" rel="noopener">Bing Webmaster Tools</a> and import the site from Search Console in one click.','Come back to both after step 2 to submit the sitemap.')]},
- {id:"s2",tab:"s",ess:1,ev:"est",g:1,a:1,title:"Create and submit your sitemap",body:()=>[why("A sitemap is the list of pages you want found. Most site builders create it for you: open yoursite.com/sitemap.xml to check before making one by hand."),
-   fld("paths","Your main pages, one per line",{rows:4,ph:"/\n/about\n/contact\n/workshops"}),box("sitemap","sitemap.xml"),where("file"),
-   ul("Submit the sitemap address in Search Console (Sitemaps) and in Bing Webmaster Tools.")]},
- {id:"s3",tab:"s",ess:1,ev:"est",g:1,a:1,title:"Set robots.txt and decide about AI crawlers",body:()=>{
-   const seg=h("div",{class:"seg"},[["search","Cited by AI, not used for training"],["all","Allow everything"],["none","Block AI crawlers"]].map(([v,l])=>{const i=h("input",{type:"radio",name:"ai",value:v});i.checked=(x.ai||"search")===v;i.addEventListener("change",()=>{x.ai=v;store.set("vk-x",x);refresh()});return h("label",null,i,h("span",{text:l}))}));
-   return [why("robots.txt tells crawlers what they may read. AI companies run separate crawlers for search (which can cite you) and for training (which only feeds their models), so you can accept one and refuse the other."),
-   h("div",{class:"fld"},h("span",{class:"lab",text:"Your choice"}),seg),box("robots","robots.txt"),where("file"),
-   ul("Crawler names change. Check the current list in each company's documentation once or twice a year.","Pages opened by an assistant because a user asked for them may not follow these rules.")]}},
- {id:"s4",tab:"s",ess:1,ev:"est",g:1,a:0,title:"Check the technical basics: secure, mobile, fast",body:()=>[why("Three things a visitor and a search engine both notice at once."),
-   ul("The address starts with https and the padlock shows, on every page.","One version of the site only: the others (with or without www, http) redirect to it.","The page reads well on a phone without zooming.",'Test the speed in <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener">PageSpeed Insights</a> and fix the first two issues it lists. Heavy images are the usual cause.')]},
- {id:"s5",tab:"s",ev:"est",g:1,a:1,title:"Describe your organisation to machines",body:()=>[why("A small block of structured data states who you are and links your site to your official profiles. It helps engines connect your name, site and profiles as one entity."),
-   h("div",{class:"grid2"},fld("logo","Address of your logo",{ph:"https://www.yoursite.com/logo.png"}),fld("profiles","Official profiles, one per line",{rows:3,ph:"https://www.linkedin.com/company/...\nhttps://www.instagram.com/..."})),box("org","Organization structured data"),where("head"),
-   ul("Add it to the home page only.")]},
-
- {id:"p1",tab:"p",ess:1,ev:"est",g:1,a:1,title:"Write the page title",body:()=>[why("The title is the blue line in search results and the first thing an engine reads. Topic first, brand last, 50 to 60 characters."),
-   fld("title","Your title",{ph:"Leave empty to use the suggestion",max:90,count:[30,60],src:"title"}),serp(),box("pTitle","",1),where("meta")]},
- {id:"p2",tab:"p",ess:1,ev:"est",g:1,a:0,title:"Write the meta description",body:()=>[why("It does not change the ranking, but it is your two-line advert under the title. One benefit, the topic, a reason to click, in 120 to 155 characters."),
-   fld("meta","Your description",{rows:2,ph:"Leave empty to use your one-sentence offer",max:220,count:[120,155],src:"meta"}),serp(),box("pMeta","",1),where("meta")]},
- {id:"p3",tab:"p",ev:"est",g:1,a:0,title:"Choose a short, readable address",body:()=>[why("Short words separated by hyphens, no dates or codes. Set it before publishing: changing it later breaks links."),box("slug","Suggested address")]},
- {id:"p4",tab:"p",ess:1,ev:"est",g:1,a:1,title:"Structure the page with headings",body:()=>[why("One H1 that says what the page is about, then H2 sections. Headings written as real questions help readers scan, and help search engines and AI assistants find the passage that answers a question."),
-   fld("sections","Your sections, one per line (questions work best)",{rows:5,ph:"What is ...?\nWho is it for?\nHow much does it cost?"}),box("outline","Heading outline"),box("pOutline","",1),where("body")]},
- {id:"p5",tab:"p",ess:1,ev:"eme",g:1,a:1,title:"Answer first, in two or three sentences",body:()=>[why("Start each section with a direct answer of 40 to 60 words, then give the detail. A passage that stands on its own is what gets quoted in a featured snippet or an AI answer."),box("pAnswer","",1),
-   ul("Check every fact the assistant wrote before publishing. You are the source, not the AI.")]},
- {id:"p6",tab:"p",ev:"eme",g:0,a:1,title:"Add a questions and answers section",body:()=>[why("Real questions with short answers serve readers and are easy for machines to reuse. Since May 2026 Google no longer shows FAQ rich results, but the markup remains valid and still describes your content: the visible questions are what matters most."),
-   fld("faq","Question on one line, answer below, blank line between each",{rows:6,ph:"How long is a workshop?\nThree hours, materials included.\n\nDo I need experience?\nNo, the workshops are for beginners."}),box("faq","FAQ section and structured data"),box("pFaq","",1),where("body")]},
- {id:"p7",tab:"p",ev:"est",g:1,a:0,title:"Describe every image",body:()=>[why("Alt text is read by screen readers and by search engines. Say what the image shows in one short sentence. Give image files a plain name too, like ceramic-bowl-workshop.jpg."),box("pAlt","",1)]},
- {id:"p8",tab:"p",ev:"est",g:0,a:0,title:"Set the preview shown when the page is shared",body:()=>[why("These tags control the title, text and image shown when someone shares the link on LinkedIn, WhatsApp or elsewhere. Use an image of about 1200 by 630 pixels."),
-   fld("img","Address of the share image",{ph:"https://www.yoursite.com/share-image.jpg"}),box("og","Share tags"),where("head")]},
- {id:"p9",tab:"p",only:"article",ev:"est",g:1,a:1,title:"Show the author, the date and your sources",body:()=>[why("A named author, a visible date and links to sources tell readers and engines that a real person stands behind the article."),
-   h("div",{class:"grid2"},fld("author","Author name",{ph:"First name Last name"}),fld("date","Publication date",{type:"date"})),box("article","Article structured data"),where("head"),
-   ul("Show the same author and date visibly on the page, and update the date when you revise the article.")]},
- {id:"p10",tab:"p",ess:1,ev:"est",g:1,a:1,title:"Link the page to the rest of the site",body:()=>[why("A page that nothing links to is rarely found. Links also tell engines which pages belong together."),
-   ul("Add a link to this page from the menu, the home page or a related page.","From this page, link to two or three related pages, with words that describe the destination, not \"click here\".","Link to your contact or next step at the end.")]},
-
- {id:"a1",tab:"a",ess:1,ev:"eme",g:0,a:1,title:"Write one reference description of your brand",body:()=>[why("AI assistants build their picture of you from many places. Give them the same sentence everywhere: who you are, what you offer, for whom."),
-   fld("brandline","Your reference sentence",{rows:2,ph:"Leave empty to use the suggestion",max:240}),box("brandline","Reference description"),box("pBrand","",1),
-   ul("Use it on your About page and footer, on your LinkedIn page and other profiles, in directories, and in the Organization block of the site setup.")]},
- {id:"a2",tab:"a",ess:1,ev:"eme",g:1,a:1,title:"Publish the facts an assistant can quote",body:()=>[why("An AI answer is made of facts it could find and trust. If your page does not state them plainly, it will quote someone who does."),
-   ul("Who you are and since when.","What you offer and for whom.","Where you operate.","Prices or price ranges, durations, conditions.","Numbers with their date and source.","Who wrote the page and when it was last updated."),box("pFacts","",1)]},
- {id:"a3",tab:"a",ess:1,ev:"eme",g:1,a:1,title:"Get mentioned on other sites",body:()=>[why("Assistants give weight to what others say about you, as search engines do with links. Start with the places you control."),
-   ul('A complete <a href="https://business.google.com/" target="_blank" rel="noopener">Google Business Profile</a> if you serve customers locally.',"A LinkedIn page and the profiles your audience really uses, with the reference description.","The directories and review sites of your sector.","Partners, clients and suppliers who can list or quote you.","One useful article or interview on a site your audience reads.")]},
- {id:"a4",tab:"a",ev:"est",g:0,a:1,title:"Confirm that AI search crawlers are allowed",body:()=>[why("If robots.txt blocks them, an assistant cannot read or cite the site. This was set in the site setup: check that the published file matches."),box("robots","robots.txt"),
-   ul("Open yoursite.com/robots.txt in a browser and compare.")]},
- {id:"a5",tab:"a",ev:"unp",g:0,a:0,title:"Add an llms.txt file (optional)",body:()=>[why("llms.txt is a proposed summary file for AI systems. Google has said its Search does not use it, and no major AI company has confirmed reading it. It is harmless and takes five minutes: do it last, or skip it."),box("llms","llms.txt"),where("file")]},
-
- {id:"c1",tab:"c",ess:1,ev:"est",g:1,a:1,title:"Check that the page is indexed",body:()=>[why("A page that is not in the index cannot appear in results or in AI answers built on them. Allow a few days after publishing."),box("siteq","Type this in Google and in Bing"),
-   ul("No result after a week: paste the page address in the URL Inspection tool of Search Console and request indexing.")]},
- {id:"c2",tab:"c",ev:"est",g:1,a:0,title:"Test your structured data",body:()=>[why("One missing comma makes structured data unreadable."),
-   ul('Paste the page address in the <a href="https://validator.schema.org/" target="_blank" rel="noopener">Schema Markup Validator</a>.','Use Google\'s <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener">Rich Results Test</a> for the types Google displays.')]},
- {id:"c3",tab:"c",ess:1,ev:"eme",g:0,a:1,title:"Ask the AI assistants about you",body:()=>[why("The only way to know how assistants describe you is to ask them. Use the same questions each month, in ChatGPT, Gemini, Copilot, Claude and Perplexity, and note what changes."),box("tests","Questions to ask"),logTable()]},
- {id:"c4",tab:"c",ev:"est",g:1,a:1,title:"Review once a month",body:()=>[why("Visibility builds over months. A short, regular review beats a big audit once a year."),
-   ul("Search Console, Performance: which searches bring people, which pages are rising or falling.","Rerun the AI questions and update the log.","Update one page: a fact, a date, a new question you were asked.")]}
+// ---------- technical requests and AI items ----------
+const TECH=()=>[
+ {id:"t1",own:"tech",title:"The site is open to search engines at launch",body:()=>[why("The most common launch mistake: a 'discourage search engines' setting, a noindex tag or a password left over from the test site. Nothing else in this brief works while it is on."),ul("No noindex tag and no blocking rule in robots.txt on the live site.","The test or staging site stays closed, and only it.")]},
+ {id:"t2",own:"tech",title:"Secure address and a single version of the site",body:()=>[why("Visitors and engines should always land on the same address."),ul("Every page loads in https.","The other versions (http, with or without www) redirect permanently to the chosen one.")]},
+ {id:"t3",own:"seo",title:"Google Search Console and Bing Webmaster Tools are connected",body:()=>[why("Both are free, show how people find the site and accept the sitemap. Bing matters too: several AI assistants rely on its index."),ul('<a href="https://search.google.com/search-console" target="_blank" rel="noopener">Google Search Console</a>: add and verify the site.','<a href="https://www.bing.com/webmasters" target="_blank" rel="noopener">Bing Webmaster Tools</a>: import the site from Search Console.',"Give yourself access, so you can read the reports without asking.")]},
+ {id:"t4",own:"tech",title:"Sitemap published and submitted",body:()=>[why("The list of pages you want found, built here from your page list. Most platforms create it automatically: the request is then to check that it contains these pages and nothing unwanted."),box(G.sitemap,"sitemap.xml"),ul("Submit its address in Search Console and Bing Webmaster Tools.")]},
+ {id:"t5",own:"you",title:"robots.txt and your decision on AI crawlers",body:()=>[why("AI companies run separate crawlers for search, which can cite you, and for training, which only feeds their models. This is a business decision, so it is yours: choose, then hand over the file."),seg(S.site,"ai",[["search","Cited by AI, not used for training"],["all","Allow everything"],["none","Block AI crawlers"]],"ai"),box(G.robots,"robots.txt"),ul("Crawler names change: ask for a check against each company's documentation once or twice a year.","Pages fetched because a user asked an assistant to open them may not follow these rules.")]},
+ {id:"t6",own:"tech",title:"Canonical address on every page",body:()=>[why("One line that tells engines which address is the official one when the same page is reachable in several ways (tracking codes, filters, duplicates). It is included in the code of each page spec.")]},
+ S.site.mode==="redesign"&&{id:"t7",own:"you",title:"Redirects from the old site",body:()=>[why("When a new site replaces an old one, every old address must lead to its new equivalent. Without this, the visibility built over years is lost in a week. List the old addresses that matter: your most visited pages and those other sites link to."),redirTable(),box(G.redir,"Redirect list (permanent, 301)")]},
+ {id:"t8",own:"tech",title:"Fast and comfortable on a phone",body:()=>[why("Most searches happen on a phone, and slow pages lose visitors before they read anything."),ul('Test the main pages in <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener">PageSpeed Insights</a> and share the report.',"Ask for compressed images in a modern format and sized for their place on the page.","Nothing should jump around while the page loads.")]},
+ {id:"t9",own:"you",title:"Audience measurement and the actions that count",body:()=>[why("Decide what success looks like before launch. List the two or three actions that matter, so that the tech team sets them up as tracked events."),fld(S.x,"events","Actions to track, one per line",{rows:3,ph:"Contact form sent\nBooking completed\nBrochure downloaded"}),box(G.events,"Events to set up"),ul("An analytics tool is installed on every page, with the consent banner your country requires.")]},
+ {id:"t10",own:"tech",title:S.site.local?"Local business details for search engines":"Organisation details for search engines",body:()=>[why("A block of structured data that states who you are and links the site to your official profiles"+(S.site.local?", with the address, phone and hours exactly as they appear on your Google Business Profile.":".")),
+   h("div",{class:"g2"},fld(S.x,"logo","Address of the logo",{ph:"https://www.yoursite.com/logo.png"}),fld(S.x,"profiles","Official profiles, one per line",{rows:2,ph:"https://www.linkedin.com/company/..."}),
+   S.site.local?[fld(S.x,"street","Street"),fld(S.x,"city","City"),fld(S.x,"zip","Postcode"),fld(S.x,"country","Country"),fld(S.x,"phone","Phone"),fld(S.x,"hours","Opening hours",{ph:"Mo-Fr 09:00-18:00"})]:null),box(G.org,"Structured data for the home page")]},
+ S.site.multi&&{id:"t11",own:"tech",title:"Languages declared on every page",body:()=>[why("Each language version should say which language it is in and point to its equivalents, so that engines show the right one to the right person."),fld(S.x,"langs","Languages, main one first",{ph:"en, fr"}),box(G.lang,"Language tags (example for the home page)")]},
+ {id:"t12",own:"tech",title:"Site name and icon",body:()=>[why("The small icon and the site name shown next to your result. Without them the result looks unfinished."),ul("A square icon (favicon) is set.","The site name is the brand name, the same everywhere.")]},
+ {id:"t13",own:"you",title:"Trust pages: About, Contact, legal notice",body:()=>[why("Readers, search engines and AI assistants all look for who is behind a site. These pages are yours to write."),ul("About: who you are, since when, with real names.","Contact: a way to reach a person, and the address if you receive customers.","Legal notice and privacy policy, as your country requires.")]},
+ {id:"t14",own:"tech",title:"A helpful page for broken links",body:()=>[why("When an address does not exist, show a page that offers the menu and a link home, not a blank error.")]}
+].filter(Boolean);
+const AIS=()=>[
+ {id:"a1",ev:"eme",own:"you",title:"One reference description of the brand, used everywhere",body:()=>[why("AI assistants build their picture of you from many places. Give them the same sentence everywhere: who you are, what you offer, for whom."),fld(S.x,"brandline","Your reference sentence",{rows:2,ph:"Leave empty to use the suggestion",max:240}),box(brandline,"Reference description"),box(G.pBrand,"brand description",1),ul("Use it on the About page and footer, on LinkedIn and other profiles, in directories, and in the organisation details of the technical requests.")]},
+ {id:"a2",ev:"eme",own:"you",title:"Facts an assistant can quote, on the pages",body:()=>[why("An AI answer is made of facts it could find and trust. If your pages do not state them plainly, it quotes someone who does."),ul("Who you are and since when.","What you offer and for whom.","Where you operate.","Prices or price ranges, durations, conditions.","Numbers with their date and source.","Who wrote the page and when it was last updated."),box(G.pFacts,"missing facts",1)]},
+ {id:"a3",ev:"eme",own:"you",title:"Direct answers at the top of each section",body:()=>[why("A passage of 40 to 60 words that answers the heading and stands on its own is what gets quoted in a featured snippet or an AI answer. The prompt for it is in each page spec.")]},
+ {id:"a4",ev:"eme",own:"you",title:"Mentions on other sites",body:()=>[why("Assistants give weight to what others say about you, as search engines do with links. Start with the places you control."),ul(S.site.local?'A complete <a href="https://business.google.com/" target="_blank" rel="noopener">Google Business Profile</a>, with the same name, address and phone as the site.':"A complete LinkedIn page with the reference description.","The directories and review sites of your sector.","Partners, clients and suppliers who can list or quote you.","One useful article or interview on a site your audience reads.")]},
+ {id:"a5",ev:"est",own:"you",title:"AI search crawlers allowed in robots.txt",body:()=>[why("If robots.txt blocks them, an assistant cannot read or cite the site. Your decision is recorded in the technical requests: your current choice produces the file below."),box(G.robots,"robots.txt")]},
+ {id:"a6",ev:"unp",own:"tech",title:"llms.txt file (optional)",body:()=>[why("A proposed summary file for AI systems. Google has said its Search does not use it, and no major AI company has confirmed reading it. Harmless and quick: lowest priority."),box(G.llms,"llms.txt")]}
 ];
-const TABS={s:["Site setup","var(--s)"],p:["This page","var(--p)"],a:["AI search","var(--a)"],c:["Check and track","var(--c)"]};
-const NOTES={a:"Google's own guidance (May 2026) is that being cited in its AI answers relies on the same foundations as classic search: no special file or trick is required. What helps is being indexed, clear structure, original facts and being mentioned elsewhere. The steps in the other tabs marked for AI count here too.",p:"Repeat these steps for each important page or article. Change the topic in the form and the texts follow."};
-const EV={est:"Established",eme:"Emerging",unp:"Unproven"};
-const vis=()=>STEPS.filter(s=>(!s.only||s.only===typ())&&(!ess||s.ess));
+function redirTable(){const tb=h("tbody");const draw=()=>{tb.innerHTML="";S.redir.forEach((r,i)=>tb.appendChild(h("tr",null,h("td",null,fld(r,"from","Old address",{bare:1,ph:"/old-page"})),h("td",null,fld(r,"to","New address",{bare:1,options:[["","Choose the new page"],...S.pages.map(p=>[pPath(p),p.name+" ("+pPath(p)+")"])]})),h("td",null,h("button",{type:"button",class:"btn x","aria-label":"Remove",text:"✕",onclick:()=>{S.redir.splice(i,1);dirty();render()}})))))};draw();
+  return h("div",{class:"fld"},h("div",{class:"tw"},h("table",{class:"t"},h("thead",null,h("tr",null,h("th",{text:"Old address"}),h("th",{text:"Goes to"}),h("th"))),tb)),h("button",{type:"button",class:"btn",style:"justify-self:start",text:"+ Add an old address",onclick:()=>{S.redir.push({from:"",to:""});dirty();render()}}))}
 
-function logTable(){
-  const wrapEl=h("div",{class:"fld"});
-  const draw=()=>{wrapEl.innerHTML="";const rows=x.log||[];
-    const tb=h("tbody",null,rows.map((r,i)=>h("tr",null,
-      h("td",null,cell(i,"d","date")),h("td",null,cell(i,"a","text","Assistant")),
-      h("td",null,sel(i)),h("td",null,cell(i,"n","text","What it said")),
-      h("td",null,h("button",{type:"button",class:"small","aria-label":"Remove row",text:"✕",onclick:()=>{x.log.splice(i,1);store.set("vk-x",x);draw()}})))));
-    wrapEl.append(h("span",{class:"lab",text:"Your log"}),h("table",{class:"log"},h("thead",null,h("tr",null,["Date","Assistant","Mentions you?","Note",""].map(t=>h("th",{text:t})))),tb),
-      h("button",{type:"button",class:"small",text:"+ Add a test",onclick:()=>{(x.log=x.log||[]).push({d:new Date().toISOString().slice(0,10),a:"",m:"",n:""});store.set("vk-x",x);draw()}}))};
-  const cell=(i,k,type,ph)=>{const e=h("input",{type,placeholder:ph||"","aria-label":ph||"Date"});e.value=x.log[i][k]||"";e.addEventListener("input",()=>{x.log[i][k]=e.value;store.set("vk-x",x)});return e};
-  const sel=i=>{const e=h("select",{"aria-label":"Mentions you?"},["","Yes, with a link","Yes, no link","No","Wrong information"].map(o=>h("option",{value:o,text:o||"Choose"})));e.value=x.log[i].m||"";e.addEventListener("change",()=>{x.log[i].m=e.value;store.set("vk-x",x)});return e};
-  draw();return wrapEl}
+// ---------- sections ----------
+const pct=(n,d)=>d?Math.round(100*n/d):0;
+const PROG={
+  site:()=>pct(["brand","url","desc","aud"].filter(k=>(S.site[k]||"").trim()).length+(S.pages.length?1:0),5),
+  kw:()=>pct(S.pages.filter(p=>kw(p)&&!dupKw(p)).length,S.pages.length),
+  pages:()=>S.pages.length?Math.round(S.pages.reduce((a,p)=>a+pScore(p),0)/S.pages.length):0,
+  tech:()=>{const t=TECH();return pct(t.filter(i=>S.tech[i.id]).length,t.length)},
+  ai:()=>{const t=AIS();return pct(t.filter(i=>S.ai[i.id]).length,t.length)}
+};
+const NAV=[["site","Site and pages"],["kw","Keywords"],["pages","Page by page"],["tech","Technical requests"],["ai","AI search"],["hand","Hand over"],["check","Check after launch"]];
+const VIEW={
+ site:()=>[h("h2",{text:"Your site and its pages"}),h("p",{class:"lead",text:"Everything starts here: what the site is, and which pages it has, whether there are two or ten. The rest of the brief is built from this list."}),
+   S.example?h("div",{class:"note"},h("div",{class:"row"},h("span",{text:"This is a worked example. Explore it, then start with your own site."}),h("button",{type:"button",class:"btn gold sp",text:"Start with my site",onclick:()=>{S=BLANK();cur=S.pages[0].id;save();render()}}))):null,
+   card("The site",h("div",{class:"g2"},fld(S.site,"brand","Brand or site name",{ph:"Atelier Nour",max:60}),fld(S.site,"url","Site address",{ph:"www.yoursite.com",max:120}),fld(S.site,"aud","Who it is for",{ph:"Adults looking for a creative hobby",max:90}),fld(S.site,"plat","Built with",{options:["WordPress","Wix","Shopify","Webflow","Custom code","Other"]})),
+     fld(S.site,"desc","What you offer, in one sentence",{rows:2,max:220,ph:"Weekend ceramic workshops for beginners in small groups."}),
+     h("div",{class:"g2"},h("div",{class:"fld"},h("span",{class:"lab",text:"Is it a new site?"}),seg(S.site,"mode",[["new","New site"],["redesign","It replaces an old site"]],"mode")),
+       h("div",{class:"fld"},h("span",{class:"lab",text:"Customers come to a place?"}),seg(S.site,"local",[[false,"No"],[true,"Yes, local business"]],"local")),
+       h("div",{class:"fld"},h("span",{class:"lab",text:"Several languages?"}),seg(S.site,"multi",[[false,"One language"],[true,"Several"]],"multi")))),
+   card("The pages",h("div",{class:"tw"},h("table",{class:"t"},h("thead",null,h("tr",null,h("th",{text:"Page"}),h("th",{text:"Type"}),h("th"))),h("tbody",null,S.pages.map((p,i)=>h("tr",null,h("td",null,fld(p,"name","Page name",{bare:1,ph:"Services",max:90})),h("td",null,fld(p,"type","Type",{bare:1,options:Object.entries(TYPES),re:1})),h("td",null,S.pages.length>1?h("button",{type:"button",class:"btn x","aria-label":"Remove "+p.name,text:"✕",onclick:()=>{S.pages.splice(i,1);if(cur===p.id)cur=S.pages[0].id;dirty();render()}}):null)))))),
+     h("div",{class:"row"},h("button",{type:"button",class:"btn main",text:"+ Add a page",onclick:()=>{const id=Math.max(0,...S.pages.map(p=>p.id))+1;S.pages.push({id,name:"",type:"page"});dirty();render();const ins=document.querySelectorAll('#main table input');ins[ins.length-1].focus()}}),h("span",{class:"why",text:S.pages.length+(S.pages.length===1?" page":" pages")+". List only the pages that should be found in search."}))),
+   nextBtn("kw")],
+ kw:()=>{const warn=h("div",{class:"alert"});live.push(()=>{const d=S.pages.filter(dupKw);warn.hidden=!d.length;warn.textContent=d.length?"Same main keyword on several pages ("+d.map(p=>p.name||"unnamed").join(", ")+"). They would compete with each other: give each page its own.":""});
+   return [h("h2",{text:"One main keyword per page"}),h("p",{class:"lead",text:"A keyword is simply the phrase someone types or asks. Each page should answer one main search, and no two pages should chase the same one. This map is the first thing an SEO specialist will ask you for."}),
+   warn,
+   card("Keyword map",h("div",{class:"tw"},h("table",{class:"t"},h("thead",null,h("tr",null,["Page","Main keyword","Related phrases","What the searcher wants"].map(t=>h("th",{text:t})))),h("tbody",null,S.pages.map(p=>h("tr",null,h("td",{class:"n",text:p.name||"(unnamed)"}),h("td",null,fld(p,"kw","Main keyword",{bare:1,ph:"beginner pottery class",max:80})),h("td",null,fld(p,"kw2","Related phrases",{bare:1,ph:"first pottery lesson, ...",max:160})),h("td",null,fld(p,"intent","Intent",{bare:1,options:["","Learn about a topic","Compare options","Buy or book","Find a provider"]})))))))),
+   card("Find the words people really use",box(G.pKw,"keyword ideas",1),why("An assistant suggests phrasing, not search volumes. Check the ideas in at least one of these places:"),
+     ul("Type the phrase in Google and note the suggestions and the 'People also ask' questions.","Search Console, Performance: the searches that already bring visitors, if the site exists.","Google Ads Keyword Planner, or the tool your SEO team uses, for volumes.","Your own sales and support emails: the exact words customers use.")),
+   nextBtn("pages")]},
+ pages:()=>{const p=P();if(!p)return [h("p",{text:"Add a page first."})];
+   const checks=h("ul",{class:"checks"});live.push(()=>{checks.innerHTML="";pChecks(p).forEach(([ok,l])=>checks.appendChild(h("li",{class:ok?"":"no"},h("b",{text:ok?"OK":"To do"}),h("span",{text:l}))))});
+   const s1=h("small"),s2=h("b"),s3=h("span");live.push(()=>{s1.textContent=pUrl(p).replace(/^https?:\/\//,"");s2.textContent=pTitle(p);s3.textContent=pMeta(p)||"Your description will appear here."});
+   const rd=h("input",{type:"checkbox",class:"chk"});rd.checked=!!p.ready;rd.addEventListener("change",()=>{p.ready=rd.checked;dirty();render()});
+   return [h("h2",{text:"The spec of each page"}),h("p",{class:"lead",text:"Choose a page and fill its sheet. Everything you decide here is what your SEO colleague or the tech team would otherwise come back to ask."}),
+   h("div",{class:"chips",role:"group","aria-label":"Pages"},S.pages.map(q=>h("button",{type:"button",class:"chip","aria-pressed":q.id===p.id,onclick:()=>{cur=q.id;render()}},q.name||"(unnamed)",h("small",{text:(q.ready?"Ready · ":"")+pScore(q)+"%"})))),
+   h("div",{style:"height:12px"}),
+   card([p.name||"(unnamed)",h("em",{class:"tag",text:TYPES[p.type]}),kw(p)?h("em",{class:"tag seo",text:kw(p)}):h("em",{class:"tag unp",text:"No keyword yet"})],checks),
+   card("How it appears in search results",h("div",{class:"g2"},h("div",{style:"display:grid;gap:12px"},fld(p,"title","Page title",{ph:"Leave empty to use: "+pTitle({...p,title:""}),max:90,count:[30,60,()=>pTitle(p)]}),fld(p,"meta","Meta description",{rows:3,max:220,ph:"One benefit, the keyword once, a reason to click.",count:[120,155,()=>pMeta(p)]}),fld(p,"slug","Address of the page",{ph:"Leave empty to use: "+pPath({...p,slug:""}),max:90})),h("div",{class:"serp","aria-label":"Preview of the search result"},s1,s2,s3))),
+   card("Structure of the page",why("One H1 that says what the page is about, then H2 sections. Sections written as real questions help readers scan, and help search engines and AI assistants find the passage that answers a question."),h("div",{class:"g2"},h("div",{style:"display:grid;gap:12px"},fld(p,"h1","Main heading (H1)",{ph:"Leave empty to use: "+pH1({...p,h1:""}),max:110}),fld(p,"sections","Sections (H2), one per line",{rows:5,ph:"What is ...?\nWho is it for?\nHow much does it cost?"})),box(()=>pOutline(p),"Heading outline"))),
+   card(["Questions and answers",h("em",{class:"tag eme",text:"Emerging"})],why("Real questions with short answers serve readers and are easy for machines to reuse. Since May 2026 Google no longer shows FAQ rich results, but the markup stays valid and still describes the content. The visible questions are what matters most."),fld(p,"faq","Question on one line, answer below, blank line between each",{rows:6,ph:"How long is a workshop?\nThree hours, materials included.\n\nDo I need experience?\nNo, it is designed for beginners."})),
+   card("Sharing"+(p.type==="article"?" and author":""),h("div",{class:"g2"},fld(p,"img","Address of the share image (about 1200 by 630 pixels)",{ph:U()+"/share-image.jpg"}),p.type==="article"?[fld(p,"author","Author name",{ph:"First name Last name"}),fld(p,"date","Publication date",{type:"date"})]:null,fld(p,"links","Pages that should link to this one",{ph:"Home, Services"}))),
+   card("AI prompts for this page",why("Copy a prompt into your assistant, then paste the best result in the fields above. Check every fact before you keep it: you are the source."),pPrompts(p).map(([l,t])=>h("details",{class:"d"},h("summary",{text:l}),h("div",null,box(()=>pPrompts(p).find(x=>x[0]===l)[1],l.toLowerCase(),1))))),
+   card("Code for the tech team",why("Title, description, canonical address, share tags and structured data for this page, generated from the sheet."),box(()=>pCode(p),"Head of the page: "+(p.name||"page"))),
+   h("div",{class:"card"},h("label",{class:"ih",style:"cursor:pointer"},rd,h("span",null,h("b",{text:"This page spec is ready to hand over"}),h("br"),h("span",{class:"why",text:"Tick it when you are happy with the sheet. It is reported in the handover file."})))),
+   nextBtn("tech")]},
+ tech:()=>[h("h2",{text:"Technical requests"}),h("p",{class:"lead",text:"What the site needs around the pages. Each line says who usually does it. Open a line to see why it matters and what to hand over, then tick it when it is confirmed."}),
+   h("div",{class:"row",style:"margin-bottom:12px"},h("em",{class:"tag you",text:"You"}),h("span",{class:"why",text:"a decision or a text that is yours"}),h("em",{class:"tag seo",text:"SEO"}),h("em",{class:"tag tech",text:"Tech"}),h("span",{class:"why",text:"to request from the team"})),
+   card(null,items(TECH(),S.tech)),nextBtn("ai")],
+ ai:()=>[h("h2",{text:"Being found by AI assistants"}),h("p",{class:"lead",text:"ChatGPT, Gemini, Copilot, Claude and Perplexity answer from pages they can read and trust."}),
+   h("div",{class:"note",text:"Google's own guidance (May 2026) is that being cited in its AI answers relies on the same foundations as classic search: no special file or trick is required. What helps is being indexed, clear structure, original facts and being mentioned elsewhere. The labels say how solid each point is."}),
+   h("div",{style:"height:12px"}),card(null,items(AIS(),S.ai)),
+   h("div",{class:"row",style:"margin-bottom:14px"},h("em",{class:"tag est",text:"Established"}),h("span",{class:"why",text:"documented by the engines"}),h("em",{class:"tag eme",text:"Emerging"}),h("span",{class:"why",text:"widely recommended, hard to measure yet"}),h("em",{class:"tag unp",text:"Unproven"}),h("span",{class:"why",text:"no confirmed effect"})),
+   nextBtn("hand")],
+ hand:()=>{const rows=[["Site and pages","site"],["Keywords","kw"],["Page specs","pages"],["Technical requests","tech"],["AI search","ai"]];
+   return [h("h2",{text:"Hand over the brief"}),h("p",{class:"lead",text:"One Excel file with everything you prepared, organised the way an SEO specialist and a tech team work: one sheet per subject."}),
+   card("Where the brief stands",h("div",{class:"tw"},h("table",{class:"t"},h("tbody",null,rows.map(([l,k])=>h("tr",null,h("td",{class:"n",text:l}),h("td",{style:"width:50%;padding-top:14px"},h("div",{class:"bar"},h("i",{style:"width:"+PROG[k]()+"%"}))),h("td",{style:"padding-top:9px",text:PROG[k]()+"%"})))))),
+     h("div",{class:"tw"},h("table",{class:"t"},h("thead",null,h("tr",null,["Page","Keyword","Spec","Status"].map(t=>h("th",{text:t})))),h("tbody",null,S.pages.map(p=>h("tr",null,h("td",{class:"n",style:"padding-top:6px",text:p.name||"(unnamed)"}),h("td",{text:kw(p)||"missing"}),h("td",{text:pScore(p)+"%"}),h("td",{text:p.ready?"Ready":"In progress"}))))))),
+   card("Send it",h("div",{class:"row"},h("button",{type:"button",class:"btn gold",text:"Download the Excel brief",onclick:()=>download(xlsx(),"visibility-brief-"+(slug(B())||"site")+".xlsx")}),h("button",{type:"button",class:"btn",text:"Open an email with the message",onclick:()=>{location.href=mailUrl()}})),box(G.msg,"Message to your SEO and tech contacts"),why("Attach the Excel file to the email yourself: a web page cannot attach files for you.")),
+   nextBtn("check")]},
+ check:()=>[h("h2",{text:"Check after launch"}),h("p",{class:"lead",text:"Once a page is live, confirm that what was specified is really there. No need to read code: paste it and read the verdict."}),
+   card("Check a published page",why("On the live page, right-click, choose 'View page source', select all, copy, and paste below."),h("div",{class:"g2"},h("label",{class:"fld"},h("span",{class:"lab",text:"Compare with the spec of"}),(()=>{const s=h("select",{id:"ckp"},S.pages.map(p=>h("option",{value:p.id,text:p.name||"(unnamed)"})));s.value=String(P().id);return s})())),h("textarea",{id:"src",rows:5,placeholder:"Paste the page source here","aria-label":"Page source"}),h("div",{class:"row"},h("button",{type:"button",class:"btn main",text:"Check the page",onclick:runCheck})),h("ul",{class:"checks",id:"res"})),
+   card("Is each page in the index?",why("A page that is not indexed cannot appear in results, nor in AI answers built on them. Allow a few days after publication, then type each line in Google and in Bing."),box(G.siteq,"One search per page"),ul("No result after a week: paste the address in the URL Inspection tool of Search Console and request indexing.",'Test the structured data with the <a href="https://validator.schema.org/" target="_blank" rel="noopener">Schema Markup Validator</a>.')),
+   card(["Ask the AI assistants about you",h("em",{class:"tag eme",text:"Emerging"})],why("The only way to know how assistants describe you is to ask. Use the same questions each month and note what changes."),box(G.tests,"Questions to ask"),logTable()),
+   card("Each month",ul("Search Console, Performance: which searches bring people, which pages rise or fall.","Ask the AI questions again and fill the log.","Update one page: a fact, a date, a new question you were asked."))]
+};
+const nextBtn=k=>h("div",{class:"row"},h("button",{type:"button",class:"btn main sp",text:"Next: "+NAV.find(n=>n[0]===k)[1],onclick:()=>{sec=k;render();window.scrollTo({top:$("main").getBoundingClientRect().top+scrollY-12})}}));
+function logTable(){const tb=h("tbody");const draw=()=>{tb.innerHTML="";S.log.forEach((r,i)=>tb.appendChild(h("tr",null,h("td",null,fld(r,"d","Date",{bare:1,type:"date"})),h("td",null,fld(r,"a","Assistant",{bare:1,ph:"Assistant"})),h("td",null,fld(r,"m","Mentions you?",{bare:1,options:["","Yes, with a link","Yes, no link","No","Wrong information"]})),h("td",null,fld(r,"n","Note",{bare:1,ph:"What it said"})),h("td",null,h("button",{type:"button",class:"btn x","aria-label":"Remove",text:"✕",onclick:()=>{S.log.splice(i,1);dirty();draw()}})))))};draw();
+  return h("div",{class:"fld"},h("div",{class:"tw"},h("table",{class:"t"},h("thead",null,h("tr",null,["Date","Assistant","Mentions you?","Note",""].map(t=>h("th",{text:t})))),tb)),h("button",{type:"button",class:"btn",style:"justify-self:start",text:"+ Add a test",onclick:()=>{S.log.push({d:new Date().toISOString().slice(0,10),a:"",m:"",n:""});dirty();draw()}}))}
+
+// ---------- page checker ----------
+function runCheck(){const src=$("src").value,res=$("res");res.innerHTML="";
+  const add=(lvl,t)=>res.appendChild(h("li",{class:lvl==="ok"?"":lvl==="bad"?"no":"mid"},h("b",{text:lvl==="ok"?"OK":lvl==="bad"?"Fix":"Check"}),h("span",{text:t})));
+  if(src.trim().length<50){add("bad","Paste the full source of the page first.");return}
+  const d=new DOMParser().parseFromString(src,"text/html"),p=S.pages.find(q=>String(q.id)===$("ckp").value)||P(),q=s=>d.querySelector(s),at=(s,a)=>{const e=q(s);return e?(e.getAttribute(a)||"").trim():""};
+  const rob=at('meta[name="robots" i]',"content").toLowerCase();
+  if(rob.includes("noindex"))add("bad","The page tells search engines NOT to index it (noindex). Ask for this to be removed.");else add("ok","The page is not hidden from search engines.");
+  const t=(d.title||"").trim();if(!t)add("bad","No title found.");else add(t===pTitle(p)?"ok":"mid",'Title: "'+t+'" ('+t.length+" characters)"+(t===pTitle(p)?"":". The spec says: \""+pTitle(p)+'"'));
+  const m=at('meta[name="description" i]',"content");if(!m)add("bad","No meta description found.");else add(!pMeta(p)||m===pMeta(p)?"ok":"mid","Description found ("+m.length+" characters)"+(!pMeta(p)||m===pMeta(p)?"":". It differs from the spec."));
+  const h1=d.querySelectorAll("h1").length;add(h1===1?"ok":"bad",h1===1?'One main heading: "'+d.querySelector("h1").textContent.trim().slice(0,80)+'"':h1+" main headings (H1) found. There should be exactly one.");
+  const h2=d.querySelectorAll("h2").length;add(h2>=2?"ok":"mid",h2+" section headings (H2) found.");
+  const imgs=[...d.querySelectorAll("img")],noalt=imgs.filter(i=>!i.hasAttribute("alt")).length;add(noalt?"mid":"ok",imgs.length+" images, "+noalt+" without a description (alt).");
+  const can=at('link[rel="canonical" i]',"href");add(can?"ok":"mid",can?"Canonical address: "+can:"No canonical address found.");
+  const lg=d.documentElement.getAttribute("lang");add(lg?"ok":"mid",lg?"Language declared: "+lg:"No language declared on the page.");
+  add(at('meta[property="og:title"]',"content")&&at('meta[property="og:image"]',"content")?"ok":"mid",at('meta[property="og:image"]',"content")?"Share tags found, with an image.":"Share tags incomplete: no og:title or og:image.");
+  const js=[...d.querySelectorAll('script[type="application/ld+json"]')];let types=[],broken=0;js.forEach(s=>{try{const o=JSON.parse(s.textContent);[].concat(o["@graph"]||o).forEach(x=>x&&x["@type"]&&types.push([].concat(x["@type"]).join("/")))}catch(e){broken++}});
+  if(broken)add("bad",broken+" structured data block(s) cannot be read: a comma or bracket is probably missing.");
+  add(types.length?"ok":"mid",types.length?"Structured data found: "+[...new Set(types)].join(", "):"No structured data found on this page.");
+  if(pFaqs(p).length&&!types.some(x=>/FAQPage/.test(x)))add("mid","The spec has questions and answers, but no FAQPage structured data is on the page.")}
+
+// ---------- Excel export ----------
+const X=t=>String(t==null?"":t).replace(/[<>&"]/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c])).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g,"");
+function zip(files){const T=new Uint32Array(256).map((_,n)=>{for(let k=0;k<8;k++)n=n&1?0xEDB88320^(n>>>1):n>>>1;return n>>>0}),crc=b=>{let c=-1;for(let i=0;i<b.length;i++)c=T[(c^b[i])&255]^(c>>>8);return(c^-1)>>>0};
+  const enc=new TextEncoder(),parts=[],cen=[];let off=0;const u16=n=>[n&255,n>>>8&255],u32=n=>[n&255,n>>>8&255,n>>>16&255,n>>>24&255];
+  files.forEach(([name,body])=>{const nb=enc.encode(name),db=enc.encode(body),c=crc(db),head=[...u16(20),...u16(0x800),...u16(0),...u16(0),...u16(0x21),...u32(c),...u32(db.length),...u32(db.length),...u16(nb.length),...u16(0)];
+    parts.push(new Uint8Array([0x50,0x4b,3,4,...head]),nb,db);cen.push(new Uint8Array([0x50,0x4b,1,2,...u16(20),...head,...u16(0),...u16(0),...u16(0),...u32(0),...u32(off)]),nb);off+=30+nb.length+db.length});
+  const cl=cen.reduce((a,b)=>a+b.length,0);return new Blob([...parts,...cen,new Uint8Array([0x50,0x4b,5,6,0,0,0,0,...u16(files.length),...u16(files.length),...u32(cl),...u32(off),0,0])],{type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"})}
+function sheets(){const yn=b=>b?"Done":"To do",t=TECH(),a=AIS(),plain=n=>{const d=document.createElement("div");d.append(...[].concat(n).flat(3).filter(x=>x&&x.nodeType));return [...d.querySelectorAll(".why,.l li")].map(e=>e.textContent.trim()).join(" ")};
+  const keep=live;const out=[
+   ["Overview",[26,90],[["Field","Value"],["Brand",B()],["Site address",U()],["Offer",DESC()],["Audience",AUD()],["Built with",S.site.plat],["Project",S.site.mode==="redesign"?"Replaces an existing site":"New site"],["Local business",S.site.local?"Yes":"No"],["Languages",S.site.multi?(S.x.langs||"several"):"One"],["AI crawlers decision",{search:"Cited by AI search, not used for training",all:"Allow everything",none:"Block AI crawlers"}[S.site.ai||"search"]],["Reference description",brandline()],["Number of pages",String(S.pages.length)]]],
+   ["Keyword map",[30,34,46,26,40],[["Page","Main keyword","Related phrases","Searcher wants","Address"],...S.pages.map(p=>[p.name,kw(p),p.kw2||"",p.intent||"",pUrl(p)])]],
+   ["Page specs",[26,16,38,44,10,60,10,36,50,60,30,12,12],[["Page","Type","Address","Title","Length","Meta description","Length","Main heading (H1)","Sections (H2)","Questions and answers","Linked from","Spec","Status"],...S.pages.map(p=>[p.name,TYPES[p.type],pUrl(p),pTitle(p),String(pTitle(p).length),pMeta(p),String(pMeta(p).length),pH1(p),pSecs(p).join("\n"),pFaqs(p).map(([q,r])=>"Q: "+q+"\nA: "+r).join("\n\n"),p.links||"",pScore(p)+"%",p.ready?"Ready":"In progress"])]],
+   ["Technical requests",[50,10,90,12],[["Request","Owner","Why and what to do","Status"],...t.map(i=>[i.title,OWN[i.own],plain(i.body()),yn(S.tech[i.id])])]],
+   ["Files",[24,110],[["File","Content"],["robots.txt",G.robots()],["sitemap.xml",G.sitemap()],["Home page structured data",G.org()],["Events to track",G.events()],...(S.site.multi?[["Language tags",G.lang()]]:[]),["llms.txt (optional)",G.llms()]]],
+   ["Redirects",[50,50],[["Old address","New address"],...S.redir.filter(r=>(r.from||"").trim()).map(r=>[r.from,r.to||""])]],
+   ["AI search",[56,14,90,12],[["Point","Evidence","Why and what to do","Status"],...a.map(i=>[i.title,EV[i.ev],plain(i.body()),yn(S.ai[i.id])])]],
+   ["Page code",[26,120],[["Page","Code for the head of the page"],...S.pages.map(p=>[p.name,pCode(p)])]]];
+  live=keep;return S.site.mode==="redesign"?out:out.filter(s=>s[0]!=="Redirects")}
+function xlsx(){const sh=sheets(),col=n=>{let s="";n++;while(n){s=String.fromCharCode(65+(n-1)%26)+s;n=Math.floor((n-1)/26)}return s};
+  const sheetXml=([name,w,rows])=>'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetViews><sheetView workbookViewId="0" showGridLines="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><sheetFormatPr defaultRowHeight="15"/><cols>'+w.map((x,i)=>'<col min="'+(i+1)+'" max="'+(i+1)+'" width="'+x+'" customWidth="1"/>').join("")+"</cols><sheetData>"+rows.map((r,ri)=>'<row r="'+(ri+1)+'">'+r.map((c,ci)=>'<c r="'+col(ci)+(ri+1)+'" t="inlineStr" s="'+(ri===0?1:ci===0?3:2)+'"><is><t xml:space="preserve">'+X(String(c).slice(0,32000))+"</t></is></c>").join("")+"</row>").join("")+"</sheetData></worksheet>";
+  const styles='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="3"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><color rgb="FFFFFFFF"/><name val="Calibri"/></font><font><b/><sz val="11"/><name val="Calibri"/></font></fonts><fills count="3"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF14233F"/></patternFill></fill></fills><borders count="2"><border/><border><bottom style="thin"><color rgb="FFE9E2D3"/></bottom></border></borders><cellStyleXfs count="1"><xf/></cellStyleXfs><cellXfs count="4"><xf/><xf fontId="1" fillId="2" applyFont="1" applyFill="1" applyAlignment="1"><alignment vertical="center"/></xf><xf borderId="1" applyBorder="1" applyAlignment="1"><alignment vertical="top" wrapText="1"/></xf><xf fontId="2" borderId="1" applyFont="1" applyBorder="1" applyAlignment="1"><alignment vertical="top" wrapText="1"/></xf></cellXfs></styleSheet>';
+  const R='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
+  return zip([["[Content_Types].xml",R+'<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>'+sh.map((_,i)=>'<Override PartName="/xl/worksheets/sheet'+(i+1)+'.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>').join("")+'<Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>'],
+   ["_rels/.rels",R+'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>'],
+   ["xl/workbook.xml",R+'<workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets>'+sh.map((s,i)=>'<sheet name="'+X(s[0])+'" sheetId="'+(i+1)+'" r:id="rId'+(i+1)+'"/>').join("")+"</sheets></workbook>"],
+   ["xl/_rels/workbook.xml.rels",R+'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'+sh.map((_,i)=>'<Relationship Id="rId'+(i+1)+'" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet'+(i+1)+'.xml"/>').join("")+'<Relationship Id="rId'+(sh.length+1)+'" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>'],
+   ["xl/styles.xml",styles],...sh.map((s,i)=>["xl/worksheets/sheet"+(i+1)+".xml",sheetXml(s)])])}
+function download(blob,name){const a=h("a",{href:URL.createObjectURL(blob),download:name});document.body.appendChild(a);a.click();a.remove()}
+const mailUrl=()=>"mailto:?subject="+encodeURIComponent("Search and AI visibility brief: "+B())+"&body="+encodeURIComponent(G.msg());
 
 // ---------- render ----------
-function render(){
-  const v=vis();
-  $("tabs").innerHTML="";
-  Object.keys(TABS).forEach(k=>{const l=v.filter(s=>s.tab===k),n=l.filter(s=>done[s.id]).length;
-    const b=h("button",{type:"button",class:"tab",role:"tab","aria-selected":k===tab,style:"--k:"+TABS[k][1],onclick:()=>{tab=k;render()}},h("b",{text:TABS[k][0]}),h("small",{text:n+" of "+l.length+" done"}),h("span",{class:"mini"},h("i",{style:"width:"+(l.length?100*n/l.length:0)+"%"})));
-    $("tabs").appendChild(b)});
-  $("tabnote").innerHTML="";if(NOTES[tab])$("tabnote").appendChild(h("div",{class:"note",text:NOTES[tab]}));
-  const box=$("plan");box.innerHTML="";box.style.setProperty("--k",TABS[tab][1]);
-  const list=v.filter(s=>s.tab===tab);
-  if(![...open].some(id=>list.find(s=>s.id===id))){const first=list.find(s=>!done[s.id])||list[0];if(first)open.add(first.id)}
-  list.forEach(s=>{
-    const isOpen=open.has(s.id),rx=h("div",{class:"rx"});rx.hidden=!isOpen;if(isOpen)rx.append(...s.body());
-    const bt=h("button",{type:"button",class:"rt","aria-expanded":isOpen,onclick:()=>{if(open.has(s.id))open.delete(s.id);else open.add(s.id);render()}},h("span",{text:s.title}),s.ess?h("em",{class:"tag",text:"Essential"}):null,h("em",{class:"tag "+s.ev,text:EV[s.ev]}));
-    const ck=h("input",{type:"checkbox",class:"chk","aria-label":"Done: "+s.title});ck.checked=!!done[s.id];
-    ck.addEventListener("change",()=>{done[s.id]=ck.checked;store.set("vk-done",done);if(ck.checked)open.delete(s.id);render()});
-    box.appendChild(h("div",{class:"r"+(done[s.id]?" done":"")},h("div",{class:"rh"},ck,bt),rx))});
-  $("ess").setAttribute("aria-pressed",ess);
-  refresh()}
-function refresh(){
-  document.querySelectorAll("[data-out]").forEach(e=>{const t=O[e.dataset.out]();if(e.textContent!==t)e.textContent=t});
-  document.querySelectorAll("[data-cnt]").forEach(e=>{const [lo,hi]=e.dataset.cnt.split(",").map(Number),n=O[e.dataset.src]().length;e.textContent=n+" characters (aim for "+lo+" to "+hi+")";e.className="cnt "+(n>=lo&&n<=hi?"ok":"bad")});
-  const all=STEPS.filter(s=>!s.only||s.only===typ()),pc=k=>{const l=all.filter(s=>s[k]);return Math.round(100*l.filter(s=>done[s.id]).length/l.length)};
-  const n=all.filter(s=>done[s.id]).length,p=Math.round(100*n/all.length);
-  $("done").textContent=n+" / "+all.length;$("pct").textContent=p+"%";$("fg").style.strokeDashoffset=188.5*(1-n/all.length);
-  $("readyG").textContent=pc("g")+"%";$("readyA").textContent=pc("a")+"%";
-  $("ptitle").textContent=(info.brand||"").trim()?"Visibility kit: "+B():"Your visibility kit";
-  const nx=all.find(s=>s.ess&&!done[s.id])||all.find(s=>!done[s.id]),el=$("next");el.innerHTML="";
-  if(nx)el.append(h("small",{text:"Up next · "+TABS[nx.tab][0]}),h("h3",{text:nx.title}));
-  else el.append(h("small",{text:"All done"}),h("h3",{text:"The basics are in place. Keep publishing useful pages and review once a month."}))}
-
-// ---------- form ----------
-["brand","url","topic","desc","aud"].forEach(k=>{$(k).value=info[k]||"";$(k).addEventListener("input",()=>{info[k]=$(k).value;store.set("vk-info",info);$("hint").hidden=true;refresh()})});
-if(info.type)document.querySelector('input[name="type"][value="'+(info.type==="article"?"article":"page")+'"]').checked=true;
-if(info.plat&&W.meta[info.plat])$("plat").value=info.plat;
-document.querySelectorAll('input[name="type"]').forEach(r=>r.addEventListener("change",()=>{info.type=typ();store.set("vk-info",info);render()}));
-$("plat").addEventListener("change",()=>{info.plat=$("plat").value;store.set("vk-info",info);render()});
-if(Object.keys(info).some(k=>["brand","url","topic","desc","aud"].includes(k)&&info[k]))$("hint").hidden=true;
-$("go").addEventListener("click",()=>$("out").scrollIntoView({behavior:"smooth",block:"start"}));
-$("ess").addEventListener("click",()=>{ess=!ess;store.set("vk-ess",ess);render()});
-$("reset").addEventListener("click",()=>{done={};store.set("vk-done",done);render()});
-$("dl").addEventListener("click",()=>{
-  const parts=[["Page title","title"],["Meta description","meta"],["Page address","slug"],["Heading outline","outline"],["FAQ section and structured data","faq"],["Share tags","og"],["sitemap.xml","sitemap"],["robots.txt","robots"],["Organization structured data","org"],["Reference description","brandline"],["llms.txt (optional)","llms"],["Questions to ask AI assistants","tests"]];
-  if(typ()==="article")parts.splice(6,0,["Article structured data","article"]);
-  const all=STEPS.filter(s=>!s.only||s.only===typ());
-  const txt="VISIBILITY KIT: "+B()+"\n"+PU()+"\n\nCHECKLIST\n"+all.map(s=>"["+(done[s.id]?"x":" ")+"] "+TABS[s.tab][0]+": "+s.title+" ("+EV[s.ev]+")").join("\n")+"\n\n"+parts.map(([l,k])=>"=== "+l.toUpperCase()+" ===\n"+O[k]()).join("\n\n")+"\n";
-  const a=h("a",{href:URL.createObjectURL(new Blob([txt],{type:"text/plain"})),download:"visibility-kit.txt"});document.body.appendChild(a);a.click();a.remove()});
+function render(){live=[];
+  const nav=$("nav");nav.innerHTML="";NAV.forEach(([k,n],i)=>{const p=PROG[k]?PROG[k]():null;nav.appendChild(h("button",{type:"button",class:"stp"+(p===100?" full":""),"aria-current":k===sec,onclick:()=>{sec=k;render()}},h("i",{text:String(i+1)}),h("b",{text:n}),h("small",{text:p==null?(k==="hand"?"Export and send":"After publication"):p+"% ready"})))});
+  const m=$("main");m.innerHTML="";m.append(...[].concat(VIEW[sec]()).flat(3).filter(Boolean));refresh()}
+function refresh(){live.forEach(f=>f());
+  const ks=Object.keys(PROG);$("total").textContent=Math.round(ks.reduce((a,k)=>a+PROG[k](),0)/ks.length)+"%";
+  document.querySelectorAll(".stp small").forEach((e,i)=>{const k=NAV[i][0];if(PROG[k])e.textContent=PROG[k]()+"% ready"})}
 render();
 </script>
 </body>
