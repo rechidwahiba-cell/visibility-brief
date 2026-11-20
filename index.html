@@ -26,6 +26,11 @@ h1{font-size:clamp(1.7rem,4.2vw,2.5rem);line-height:1.1;letter-spacing:-.025em;m
 .hero p{max-width:620px;margin:0;color:rgba(255,255,255,.78)}
 .score{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:10px 16px}
 .score b{font-size:1.7rem;line-height:1}.score span{font-size:.82rem;color:rgba(255,255,255,.75)}
+.side{display:grid;gap:8px;justify-items:start}
+.hbtn{font:inherit;font-size:.85rem;font-weight:600;padding:7px 12px;border-radius:99px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;cursor:pointer}
+.hbtn:hover{background:rgba(255,255,255,.18)}
+#saved{color:rgba(255,255,255,.65);font-size:.78rem}
+@media(min-width:760px){.side{justify-items:end}}
 .layout{display:grid;gap:24px;margin-top:24px;align-items:start}
 nav.steps{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
 .stp{font:inherit;text-align:left;flex:none;display:grid;grid-template-columns:auto 1fr;gap:2px 10px;align-items:center;padding:10px 12px;border-radius:13px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;min-width:170px}
@@ -112,7 +117,11 @@ footer{margin:40px 0 32px;text-align:center;color:var(--mute);font-size:.86rem}
     <h1>Prepare the whole site. Hand over one file.</h1>
     <p>Keywords, page specs, technical requests and AI search checks for every page, written by you and ready for your SEO and tech teams.</p>
   </div>
-  <div class="score"><b id="total">0%</b><span>brief<br>ready</span></div>
+  <div class="side">
+    <div class="score"><b id="total">0%</b><span>brief<br>ready</span></div>
+    <div class="row"><button type="button" class="hbtn" id="saveF">Save brief to a file</button><button type="button" class="hbtn" id="openF">Open a brief</button><input type="file" id="file" accept=".json,application/json" hidden></div>
+    <small id="saved">Saved in this browser as you type</small>
+  </div>
 </div></header>
 
 <main class="wrap"><div class="layout">
@@ -135,10 +144,23 @@ const EXAMPLE=()=>({example:true,site:{brand:"Atelier Nour",url:"www.ateliernour
   {id:3,name:"How to choose your first pottery class",type:"article",kw:"how to choose a pottery class",intent:"Learn about a topic"}],
  tech:{},ai:{},redir:[],log:[],x:{}});
 const BLANK=()=>({site:{brand:"",url:"",desc:"",aud:"",plat:"WordPress",mode:"new",local:false,multi:false,ai:"search"},pages:[{id:1,name:"Home",type:"home"}],tech:{},ai:{},redir:[],log:[],x:{}});
-let S=store.get("vb-state",null)||EXAMPLE();
+const strs=o=>Object.fromEntries(Object.entries(o&&typeof o==="object"?o:{}).filter(([k,v])=>typeof v==="string"));
+const bools=o=>Object.fromEntries(Object.entries(o&&typeof o==="object"?o:{}).filter(([k,v])=>typeof v==="boolean"));
+function normalize(o){const b=BLANK(),TY={home:1,page:1,article:1};o=o&&typeof o==="object"?o:{};
+  const site={...b.site,...strs(o.site),...bools(o.site)};site.local=site.local===true;site.multi=site.multi===true;
+  const pages=(Array.isArray(o.pages)?o.pages:[]).filter(q=>q&&typeof q==="object").slice(0,200).map((q,i)=>({...strs(q),id:i+1,name:String(q.name||""),type:TY[q.type]?q.type:"page",ready:q.ready===true}));
+  const list=a=>(Array.isArray(a)?a:[]).filter(r=>r&&typeof r==="object").slice(0,500).map(strs);
+  return{example:o.example===true,site,pages:pages.length?pages:b.pages,tech:bools(o.tech),ai:bools(o.ai),redir:list(o.redir),log:list(o.log),x:strs(o.x)}}
+let S=normalize(store.get("vb-state",null)||EXAMPLE());
 let sec="site",cur=S.pages[0]?S.pages[0].id:null,live=[];
 const open=new Set();
 const save=()=>store.set("vb-state",S);
+const stamp=()=>new Date().toISOString().slice(0,10);
+function saveFile(){download(new Blob([JSON.stringify({app:"visibility-brief",version:1,saved:stamp(),state:S},null,1)],{type:"application/json"}),"brief-"+(slug(B())||"site")+"-"+stamp()+".json");$("saved").textContent="Brief file saved on "+stamp()}
+function openFile(file){const r=new FileReader();r.onload=()=>{let o;try{o=JSON.parse(r.result)}catch(e){o=null}
+  if(!o||o.app!=="visibility-brief"||!o.state||!o.state.site||!Array.isArray(o.state.pages)){$("saved").textContent="This file is not a visibility brief.";return}
+  if(!S.example&&!confirm("Replace the brief currently on screen with the one from this file?"))return;
+  S=normalize(o.state);S.example=false;cur=S.pages[0].id;sec="site";open.clear();save();render();$("saved").textContent="Brief opened: "+B()+(o.saved?" (saved on "+String(o.saved).slice(0,10)+")":"")};r.readAsText(file)}
 
 // ---------- helpers on the data ----------
 const B=()=>(S.site.brand||"").trim()||"Your brand";
@@ -198,7 +220,10 @@ const G={
   pKw:()=>"I am preparing the search strategy of a website. Brand: "+B()+". Offer: "+DESC()+" Audience: "+AUD()+".\nPages: "+S.pages.map(p=>p.name+" ("+TYPES[p.type].toLowerCase()+")").join("; ")+".\n\nFor each page, propose one main keyword phrase and three related phrases, written the way this audience really searches. Give each page a different main phrase so that no two pages compete. Say what the searcher wants for each (learn, compare, buy, find a provider). Present it as a table. You cannot see search volumes: mark each phrase I should verify in a keyword tool.",
   pBrand:()=>"Rewrite this description of "+B()+" in one sentence of at most 25 words, then in a 50-word version. Keep only facts: what we do, for whom, where. No superlatives. Description: "+DESC()+" Audience: "+AUD()+".",
   pFacts:()=>"Here is the text of my page: [paste the text]. List the factual questions a reader or an AI assistant could ask about "+B()+" that this page does not answer clearly (who, what, for whom, where, how much, how long, since when, who wrote it, last updated).",
-  msg:()=>{const t=TECH().filter(i=>!S.tech[i.id]);return "Hello,\n\nHere is the search and AI visibility brief for "+B()+" ("+U()+").\n\n- "+S.pages.length+" pages specified: keyword, title, description, headings, questions and code for each.\n- "+t.length+" technical requests still open.\n"+(S.site.mode==="redesign"?"- The site replaces an existing one: the redirect list is included.\n":"")+"\nFirst requests to handle:\n"+t.slice(0,5).map(i=>"- "+i.title+" ("+OWN[i.own]+")").join("\n")+"\n\nThe attached Excel file has one sheet per subject: overview, keyword map, page specs, technical requests, redirects, AI search and the code for each page.\n\nTell me what is unclear or not feasible and I will adjust the brief.\n\nThank you"}
+  notes:()=>(S.x.notes||"").trim()?"\nNotes and open questions:\n"+S.x.notes.trim()+"\n":"",
+  tool:()=>location.origin+location.pathname,
+  msgSeo:()=>{const r=S.pages.filter(q=>q.ready).length,nk=S.pages.filter(q=>!kw(q)).length;return "Hello,\n\nI have prepared the search and AI visibility brief for "+B()+" ("+U()+"), "+S.pages.length+" pages. Before it goes to the tech team, could you review it?\n\n1. Keyword map: one main keyword per page"+(nk?" ("+nk+" still missing)":"")+". Please correct them with real search volumes and tell me where two pages compete.\n2. Page specs: title, description, headings and questions for each page ("+r+" of "+S.pages.length+" marked ready on my side).\n3. AI search: the points I plan to cover, with how solid each one is.\n"+G.notes()+"\nAttached: the Excel file for review, and the brief file. You can open the brief file in the tool and edit it directly, then send it back: "+G.tool()+"\n\nThank you"},
+  msgTech:()=>{const t=TECH().filter(i=>!S.tech[i.id]&&i.own!=="you");return "Hello,\n\nHere are the technical requests for the "+(S.site.mode==="redesign"?"new version of ":"")+B()+" site ("+U()+", built with "+S.site.plat+"), "+S.pages.length+" pages.\n\nOpen requests:\n"+t.map(i=>"- "+i.title).join("\n")+"\n\nReady to use in the attached Excel file:\n- robots.txt and sitemap.xml\n- structured data for the home page\n- the head code of each page (title, description, canonical, share tags, structured data)\n- the events to track"+(S.site.mode==="redesign"?"\n- the redirect list from the old site ("+S.redir.filter(r=>(r.from||"").trim()).length+" addresses)":"")+"\n"+G.notes()+"\nTell me what is not feasible or needs a decision from me, and I will adjust the brief.\n\nThank you"}
 };
 const pPrompts=p=>{const k=TYPES[p.type].toLowerCase(),ctx=" Brand: "+B()+". Offer: "+DESC()+" Audience: "+AUD()+".";return [
   ["Title ideas","Write 5 page titles of 50 to 60 characters for a "+k+' targeting the search "'+topic(p)+'".'+ctx+" Put the keyword first and the brand name last. No clickbait. Give the character count of each."],
@@ -296,12 +321,13 @@ const VIEW={
    const rd=h("input",{type:"checkbox",class:"chk"});rd.checked=!!p.ready;rd.addEventListener("change",()=>{p.ready=rd.checked;dirty();render()});
    return [h("h2",{text:"The spec of each page"}),h("p",{class:"lead",text:"Choose a page and fill its sheet. Everything you decide here is what your SEO colleague or the tech team would otherwise come back to ask."}),
    h("div",{class:"chips",role:"group","aria-label":"Pages"},S.pages.map(q=>h("button",{type:"button",class:"chip","aria-pressed":q.id===p.id,onclick:()=>{cur=q.id;render()}},q.name||"(unnamed)",h("small",{text:(q.ready?"Ready · ":"")+pScore(q)+"%"})))),
-   h("div",{style:"height:12px"}),
+   h("div",{class:"row",style:"margin:10px 0 12px"},h("button",{type:"button",class:"btn",text:"Duplicate this page",onclick:()=>{const id=Math.max(0,...S.pages.map(q=>q.id))+1;S.pages.push({...p,id,name:(p.name||"Page")+" (copy)",type:p.type==="home"?"page":p.type,kw:"",slug:"",title:"",ready:false});cur=id;dirty();render()}}),h("span",{class:"why",text:"Copies the structure and questions to a new page. Give it its own keyword."})),
    card([p.name||"(unnamed)",h("em",{class:"tag",text:TYPES[p.type]}),kw(p)?h("em",{class:"tag seo",text:kw(p)}):h("em",{class:"tag unp",text:"No keyword yet"})],checks),
    card("How it appears in search results",h("div",{class:"g2"},h("div",{style:"display:grid;gap:12px"},fld(p,"title","Page title",{ph:"Leave empty to use: "+pTitle({...p,title:""}),max:90,count:[30,60,()=>pTitle(p)]}),fld(p,"meta","Meta description",{rows:3,max:220,ph:"One benefit, the keyword once, a reason to click.",count:[120,155,()=>pMeta(p)]}),fld(p,"slug","Address of the page",{ph:"Leave empty to use: "+pPath({...p,slug:""}),max:90})),h("div",{class:"serp","aria-label":"Preview of the search result"},s1,s2,s3))),
    card("Structure of the page",why("One H1 that says what the page is about, then H2 sections. Sections written as real questions help readers scan, and help search engines and AI assistants find the passage that answers a question."),h("div",{class:"g2"},h("div",{style:"display:grid;gap:12px"},fld(p,"h1","Main heading (H1)",{ph:"Leave empty to use: "+pH1({...p,h1:""}),max:110}),fld(p,"sections","Sections (H2), one per line",{rows:5,ph:"What is ...?\nWho is it for?\nHow much does it cost?"})),box(()=>pOutline(p),"Heading outline"))),
    card(["Questions and answers",h("em",{class:"tag eme",text:"Emerging"})],why("Real questions with short answers serve readers and are easy for machines to reuse. Since May 2026 Google no longer shows FAQ rich results, but the markup stays valid and still describes the content. The visible questions are what matters most."),fld(p,"faq","Question on one line, answer below, blank line between each",{rows:6,ph:"How long is a workshop?\nThree hours, materials included.\n\nDo I need experience?\nNo, it is designed for beginners."})),
    card("Sharing"+(p.type==="article"?" and author":""),h("div",{class:"g2"},fld(p,"img","Address of the share image (about 1200 by 630 pixels)",{ph:U()+"/share-image.jpg"}),p.type==="article"?[fld(p,"author","Author name",{ph:"First name Last name"}),fld(p,"date","Publication date",{type:"date"})]:null,fld(p,"links","Pages that should link to this one",{ph:"Home, Services"}))),
+   card("Note for the SEO expert or the tech team",fld(p,"note","What they should know about this page",{rows:2,max:600,ph:"The booking form is the goal of this page. Not sure about the keyword."})),
    card("AI prompts for this page",why("Copy a prompt into your assistant, then paste the best result in the fields above. Check every fact before you keep it: you are the source."),pPrompts(p).map(([l,t])=>h("details",{class:"d"},h("summary",{text:l}),h("div",null,box(()=>pPrompts(p).find(x=>x[0]===l)[1],l.toLowerCase(),1))))),
    card("Code for the tech team",why("Title, description, canonical address, share tags and structured data for this page, generated from the sheet."),box(()=>pCode(p),"Head of the page: "+(p.name||"page"))),
    h("div",{class:"card"},h("label",{class:"ih",style:"cursor:pointer"},rd,h("span",null,h("b",{text:"This page spec is ready to hand over"}),h("br"),h("span",{class:"why",text:"Tick it when you are happy with the sheet. It is reported in the handover file."})))),
@@ -318,7 +344,10 @@ const VIEW={
    return [h("h2",{text:"Hand over the brief"}),h("p",{class:"lead",text:"One Excel file with everything you prepared, organised the way an SEO specialist and a tech team work: one sheet per subject."}),
    card("Where the brief stands",h("div",{class:"tw"},h("table",{class:"t"},h("tbody",null,rows.map(([l,k])=>h("tr",null,h("td",{class:"n",text:l}),h("td",{style:"width:50%;padding-top:14px"},h("div",{class:"bar"},h("i",{style:"width:"+PROG[k]()+"%"}))),h("td",{style:"padding-top:9px",text:PROG[k]()+"%"})))))),
      h("div",{class:"tw"},h("table",{class:"t"},h("thead",null,h("tr",null,["Page","Keyword","Spec","Status"].map(t=>h("th",{text:t})))),h("tbody",null,S.pages.map(p=>h("tr",null,h("td",{class:"n",style:"padding-top:6px",text:p.name||"(unnamed)"}),h("td",{text:kw(p)||"missing"}),h("td",{text:pScore(p)+"%"}),h("td",{text:p.ready?"Ready":"In progress"}))))))),
-   card("Send it",h("div",{class:"row"},h("button",{type:"button",class:"btn gold",text:"Download the Excel brief",onclick:()=>download(xlsx(),"visibility-brief-"+(slug(B())||"site")+".xlsx")}),h("button",{type:"button",class:"btn",text:"Open an email with the message",onclick:()=>{location.href=mailUrl()}})),box(G.msg,"Message to your SEO and tech contacts"),why("Attach the Excel file to the email yourself: a web page cannot attach files for you.")),
+   card("Notes and open questions",why("Anything the brief does not say: deadlines, constraints, what you are unsure about. It is added to both messages and to the Excel file."),fld(S.x,"notes","Your notes",{rows:3,max:1500,ph:"Launch planned for ...\nNot sure whether the blog should be on a subfolder.\nThe old site has about 40 pages: which ones need a redirect?"})),
+   card(["For your SEO expert",h("em",{class:"tag seo",text:"SEO"})],why("They get the keyword map, the page specs and the AI search points, to correct and complete."),h("div",{class:"row"},h("button",{type:"button",class:"btn gold",text:"Download the SEO pack (Excel)",onclick:()=>download(xlsx(SEO_PACK),"seo-review-"+(slug(B())||"site")+".xlsx")}),h("button",{type:"button",class:"btn",text:"Open an email",onclick:()=>{location.href=mailUrl("msgSeo")}})),box(G.msgSeo,"Message to your SEO expert")),
+   card(["For the tech team",h("em",{class:"tag tech",text:"Tech"})],why("They get the technical requests, the files, the redirect list and the code of each page."),h("div",{class:"row"},h("button",{type:"button",class:"btn gold",text:"Download the tech pack (Excel)",onclick:()=>download(xlsx(TECH_PACK),"tech-requests-"+(slug(B())||"site")+".xlsx")}),h("button",{type:"button",class:"btn",text:"Open an email",onclick:()=>{location.href=mailUrl("msgTech")}})),box(G.msgTech,"Message to the tech team")),
+   card("The whole brief",why("The full Excel file has every sheet. The brief file lets a colleague open your work in this tool, complete it and send it back: it is also your backup."),h("div",{class:"row"},h("button",{type:"button",class:"btn main",text:"Download the full Excel brief",onclick:()=>download(xlsx(),"visibility-brief-"+(slug(B())||"site")+".xlsx")}),h("button",{type:"button",class:"btn",text:"Save the brief file",onclick:saveFile})),why("Attach the files to the email yourself: a web page cannot attach files for you.")),
    nextBtn("check")]},
  check:()=>[h("h2",{text:"Check after launch"}),h("p",{class:"lead",text:"Once a page is live, confirm that what was specified is really there. No need to read code: paste it and read the verdict."}),
    card("Check a published page",why("On the live page, right-click, choose 'View page source', select all, copy, and paste below."),h("div",{class:"g2"},h("label",{class:"fld"},h("span",{class:"lab",text:"Compare with the spec of"}),(()=>{const s=h("select",{id:"ckp"},S.pages.map(p=>h("option",{value:p.id,text:p.name||"(unnamed)"})));s.value=String(P().id);return s})())),h("textarea",{id:"src",rows:5,placeholder:"Paste the page source here","aria-label":"Page source"}),h("div",{class:"row"},h("button",{type:"button",class:"btn main",text:"Check the page",onclick:runCheck})),h("ul",{class:"checks",id:"res"})),
@@ -359,16 +388,17 @@ function zip(files){const T=new Uint32Array(256).map((_,n)=>{for(let k=0;k<8;k++
   const cl=cen.reduce((a,b)=>a+b.length,0);return new Blob([...parts,...cen,new Uint8Array([0x50,0x4b,5,6,0,0,0,0,...u16(files.length),...u16(files.length),...u32(cl),...u32(off),0,0])],{type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"})}
 function sheets(){const yn=b=>b?"Done":"To do",t=TECH(),a=AIS(),plain=n=>{const d=document.createElement("div");d.append(...[].concat(n).flat(3).filter(x=>x&&x.nodeType));return [...d.querySelectorAll(".why,.l li")].map(e=>e.textContent.trim()).join(" ")};
   const keep=live;const out=[
-   ["Overview",[26,90],[["Field","Value"],["Brand",B()],["Site address",U()],["Offer",DESC()],["Audience",AUD()],["Built with",S.site.plat],["Project",S.site.mode==="redesign"?"Replaces an existing site":"New site"],["Local business",S.site.local?"Yes":"No"],["Languages",S.site.multi?(S.x.langs||"several"):"One"],["AI crawlers decision",{search:"Cited by AI search, not used for training",all:"Allow everything",none:"Block AI crawlers"}[S.site.ai||"search"]],["Reference description",brandline()],["Number of pages",String(S.pages.length)]]],
+   ["Overview",[26,90],[["Field","Value"],["Brand",B()],["Site address",U()],["Offer",DESC()],["Audience",AUD()],["Built with",S.site.plat],["Project",S.site.mode==="redesign"?"Replaces an existing site":"New site"],["Local business",S.site.local?"Yes":"No"],["Languages",S.site.multi?(S.x.langs||"several"):"One"],["AI crawlers decision",{search:"Cited by AI search, not used for training",all:"Allow everything",none:"Block AI crawlers"}[S.site.ai||"search"]],["Reference description",brandline()],["Number of pages",String(S.pages.length)],["Brief date",stamp()],["Notes and open questions",(S.x.notes||"").trim()]]],
    ["Keyword map",[30,34,46,26,40],[["Page","Main keyword","Related phrases","Searcher wants","Address"],...S.pages.map(p=>[p.name,kw(p),p.kw2||"",p.intent||"",pUrl(p)])]],
-   ["Page specs",[26,16,38,44,10,60,10,36,50,60,30,12,12],[["Page","Type","Address","Title","Length","Meta description","Length","Main heading (H1)","Sections (H2)","Questions and answers","Linked from","Spec","Status"],...S.pages.map(p=>[p.name,TYPES[p.type],pUrl(p),pTitle(p),String(pTitle(p).length),pMeta(p),String(pMeta(p).length),pH1(p),pSecs(p).join("\n"),pFaqs(p).map(([q,r])=>"Q: "+q+"\nA: "+r).join("\n\n"),p.links||"",pScore(p)+"%",p.ready?"Ready":"In progress"])]],
+   ["Page specs",[26,16,38,44,10,60,10,36,50,60,30,40,12,12],[["Page","Type","Address","Title","Length","Meta description","Length","Main heading (H1)","Sections (H2)","Questions and answers","Linked from","Note","Spec","Status"],...S.pages.map(p=>[p.name,TYPES[p.type],pUrl(p),pTitle(p),String(pTitle(p).length),pMeta(p),String(pMeta(p).length),pH1(p),pSecs(p).join("\n"),pFaqs(p).map(([q,r])=>"Q: "+q+"\nA: "+r).join("\n\n"),p.links||"",p.note||"",pScore(p)+"%",p.ready?"Ready":"In progress"])]],
    ["Technical requests",[50,10,90,12],[["Request","Owner","Why and what to do","Status"],...t.map(i=>[i.title,OWN[i.own],plain(i.body()),yn(S.tech[i.id])])]],
    ["Files",[24,110],[["File","Content"],["robots.txt",G.robots()],["sitemap.xml",G.sitemap()],["Home page structured data",G.org()],["Events to track",G.events()],...(S.site.multi?[["Language tags",G.lang()]]:[]),["llms.txt (optional)",G.llms()]]],
    ["Redirects",[50,50],[["Old address","New address"],...S.redir.filter(r=>(r.from||"").trim()).map(r=>[r.from,r.to||""])]],
    ["AI search",[56,14,90,12],[["Point","Evidence","Why and what to do","Status"],...a.map(i=>[i.title,EV[i.ev],plain(i.body()),yn(S.ai[i.id])])]],
    ["Page code",[26,120],[["Page","Code for the head of the page"],...S.pages.map(p=>[p.name,pCode(p)])]]];
   live=keep;return S.site.mode==="redesign"?out:out.filter(s=>s[0]!=="Redirects")}
-function xlsx(){const sh=sheets(),col=n=>{let s="";n++;while(n){s=String.fromCharCode(65+(n-1)%26)+s;n=Math.floor((n-1)/26)}return s};
+const SEO_PACK=["Overview","Keyword map","Page specs","AI search"],TECH_PACK=["Overview","Technical requests","Files","Redirects","Page code"];
+function xlsx(only){const sh=sheets().filter(x=>!only||only.includes(x[0])),col=n=>{let s="";n++;while(n){s=String.fromCharCode(65+(n-1)%26)+s;n=Math.floor((n-1)/26)}return s};
   const sheetXml=([name,w,rows])=>'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetViews><sheetView workbookViewId="0" showGridLines="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><sheetFormatPr defaultRowHeight="15"/><cols>'+w.map((x,i)=>'<col min="'+(i+1)+'" max="'+(i+1)+'" width="'+x+'" customWidth="1"/>').join("")+"</cols><sheetData>"+rows.map((r,ri)=>'<row r="'+(ri+1)+'">'+r.map((c,ci)=>'<c r="'+col(ci)+(ri+1)+'" t="inlineStr" s="'+(ri===0?1:ci===0?3:2)+'"><is><t xml:space="preserve">'+X(String(c).slice(0,32000))+"</t></is></c>").join("")+"</row>").join("")+"</sheetData></worksheet>";
   const styles='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="3"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><color rgb="FFFFFFFF"/><name val="Calibri"/></font><font><b/><sz val="11"/><name val="Calibri"/></font></fonts><fills count="3"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF14233F"/></patternFill></fill></fills><borders count="2"><border/><border><bottom style="thin"><color rgb="FFE9E2D3"/></bottom></border></borders><cellStyleXfs count="1"><xf/></cellStyleXfs><cellXfs count="4"><xf/><xf fontId="1" fillId="2" applyFont="1" applyFill="1" applyAlignment="1"><alignment vertical="center"/></xf><xf borderId="1" applyBorder="1" applyAlignment="1"><alignment vertical="top" wrapText="1"/></xf><xf fontId="2" borderId="1" applyFont="1" applyBorder="1" applyAlignment="1"><alignment vertical="top" wrapText="1"/></xf></cellXfs></styleSheet>';
   const R='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
@@ -378,7 +408,7 @@ function xlsx(){const sh=sheets(),col=n=>{let s="";n++;while(n){s=String.fromCha
    ["xl/_rels/workbook.xml.rels",R+'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'+sh.map((_,i)=>'<Relationship Id="rId'+(i+1)+'" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet'+(i+1)+'.xml"/>').join("")+'<Relationship Id="rId'+(sh.length+1)+'" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>'],
    ["xl/styles.xml",styles],...sh.map((s,i)=>["xl/worksheets/sheet"+(i+1)+".xml",sheetXml(s)])])}
 function download(blob,name){const a=h("a",{href:URL.createObjectURL(blob),download:name});document.body.appendChild(a);a.click();a.remove()}
-const mailUrl=()=>"mailto:?subject="+encodeURIComponent("Search and AI visibility brief: "+B())+"&body="+encodeURIComponent(G.msg());
+const mailUrl=k=>"mailto:?subject="+encodeURIComponent((k==="msgTech"?"Technical requests: ":"Search brief to review: ")+B())+"&body="+encodeURIComponent(G[k]());
 
 // ---------- render ----------
 function render(){live=[];
@@ -387,6 +417,9 @@ function render(){live=[];
 function refresh(){live.forEach(f=>f());
   const ks=Object.keys(PROG);$("total").textContent=Math.round(ks.reduce((a,k)=>a+PROG[k](),0)/ks.length)+"%";
   document.querySelectorAll(".stp small").forEach((e,i)=>{const k=NAV[i][0];if(PROG[k])e.textContent=PROG[k]()+"% ready"})}
+$("saveF").addEventListener("click",saveFile);
+$("openF").addEventListener("click",()=>$("file").click());
+$("file").addEventListener("change",e=>{if(e.target.files[0])openFile(e.target.files[0]);e.target.value=""});
 render();
 </script>
 </body>
