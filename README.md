@@ -27,3 +27,9 @@ By W.R., built with an AI coding assistant.
 ## Disclaimer
 
 This tool was developed independently by one person, from personal professional experience. It is a free aid provided as is, for general information only, with no guarantee that it is complete, accurate, up to date or suited to your situation. It is not professional, legal or technical advice. You are solely responsible for how you use it and for the decisions you make with it, and the author accepts no liability for any loss or damage arising from its use. Product and company names are mentioned for reference only: this tool is not affiliated with or endorsed by any of them.
+
+## Use and rights
+
+Copyright (c) 2026 W.R. All rights reserved.
+
+This tool is free to use online, for yourself or for your own work. Copying, reselling or building a commercial product from this tool or its code is not allowed without written permission. See the LICENSE file.
